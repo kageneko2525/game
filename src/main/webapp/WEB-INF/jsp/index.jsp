@@ -7,7 +7,7 @@
 <title>エセガゲームランド</title>
 </head>
 <body>
-<p>ゲームメニュー</p>
+<p></p>
 </body>
 <footer></footer>
 </html>
