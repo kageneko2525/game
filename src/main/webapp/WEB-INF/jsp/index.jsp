@@ -7,6 +7,7 @@
 <title>エセガゲームランド</title>
 </head>
 <body>
-<p>fffjjhj</p>
+
 </body>
+<footer></footer>
 </html>
