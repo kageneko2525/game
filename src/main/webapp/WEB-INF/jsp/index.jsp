@@ -9,5 +9,7 @@
 <body>
 <p>ゲームメニュー</p>
 </body>
-<footer></footer>
+<footer>
+
+</footer>
 </html>
