@@ -89,13 +89,16 @@ public class Login extends HttpServlet {
 				e.printStackTrace();
 			}
 
-			UserDao dao = new UserDao();
-			boolean isLogin = dao.findByIdAndHash(user);
+			UserDao userdao = new UserDao();
+			boolean isLogin = userdao.findByIdAndHash(user);
 			if (isLogin) {
+				//一致するIDがあるとき
+				//ログインする
 				session.setAttribute("loginUser", user);
 				session.setMaxInactiveInterval(60*10);
 				response.sendRedirect("/dokoTsubu/Index");
 			} else {
+				//しないときはエラーメッセージをつけてloginへ
 				session.setAttribute("errorMessage", "存在しないID、またはパスワードが間違っています。");
 			    response.sendRedirect("/dokoTsubu/Login");
 			}
