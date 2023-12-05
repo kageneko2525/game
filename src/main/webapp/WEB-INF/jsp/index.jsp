@@ -7,9 +7,12 @@
 <title>エセガゲームランド</title>
 </head>
 <body>
-
-	<p></p>
-
+	<section class="">
+		<div class="">
+			<h2 class=""></h2>
+			<p class=""></p>
+		</div>
+	</section>
 </body>
 <footer></footer>
 </html>
