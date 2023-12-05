@@ -2,8 +2,14 @@
 
 .menu__item {
 	text-align: right;
+
+}
+
+.menu__item--p {
 	background-image: url('../images/dokan.png');
 	background-repeat: no-repeat;
 	background-position: right;
-	background-size: 400px auto;
+	background-size: 100px 100%;
+	margin-left: 30%;
+	width: 120px;
 }

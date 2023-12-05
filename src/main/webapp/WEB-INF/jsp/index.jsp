@@ -11,16 +11,16 @@
 <body>
 	<section id ="menu">
 		<div class ="menu__item">
-			ミニゲーム
+			<p class ="menu__item--p">ミニゲーム</p>
 		</div>
 		<div class ="menu__item">	
-			ランキング
+			<p class ="menu__item--p">ランキング</p>
 		</div>
 		<div class ="menu__item">		
-			ショップ
+			<p class ="menu__item--p">ショップ</p>
 		</div>
 		<div class ="menu__item">			
-			ログイン
+			<p class ="menu__item--p">ログイン</p>
 		</div>
 	</section>
 </body>

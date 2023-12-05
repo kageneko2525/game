@@ -12,21 +12,22 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/karikidouyou")
 public class karikidouyou extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-   public karikidouyou() {
-        super();
-  
-   }
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-	
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
-		dispatcher.forward(request, response);
-	
-	
+
+	public karikidouyou() {
+		super();
+
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
+		dispatcher.forward(request, response);
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 
