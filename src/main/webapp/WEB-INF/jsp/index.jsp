@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>エセガゲームランド</title>
+<link rel="stylesheet" href="./css/footer.css">
 </head>
 <body>
 
