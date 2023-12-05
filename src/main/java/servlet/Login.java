@@ -96,11 +96,11 @@ public class Login extends HttpServlet {
 				//ログインする
 				session.setAttribute("loginUser", user);
 				session.setMaxInactiveInterval(60*10);
-				response.sendRedirect("/dokoTsubu/Index");
+				response.sendRedirect("/game/Index");
 			} else {
 				//しないときはエラーメッセージをつけてloginへ
 				session.setAttribute("errorMessage", "存在しないID、またはパスワードが間違っています。");
-			    response.sendRedirect("/dokoTsubu/Login");
+			    response.sendRedirect("/game/Login");
 			}
 			
 		}
