@@ -15,6 +15,7 @@
 		</div>
 	</section>
 </body>
+<footer>
 <div id ="footer__back--white">
 <a href="#">TOPへ</p>
 </div>
