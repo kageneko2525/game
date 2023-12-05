@@ -9,12 +9,12 @@
 <link rel="stylesheet" href="./css/footer.css">
 </head>
 <body>
-	<section class="menu">
-		<div class="menu__item">
-			<a href="/game/karikidouyou" class="menu__item-link">ミニゲーム</a><br>
-			<a href="/game/karikidouyou" class="menu__item-link">ランキング</a><br>
-			<a href="/game/karikidouyou" class="menu__item-link">ショップ</a><br>
-			<a href="/game/karikidouyou" class="menu__item-link">ログイン</a>
+	<section id ="menu">
+		<div id ="menu__item">
+			<a href="/game/karikidouyou" id ="menu__item-link">ミニゲーム</a><br>
+			<a href="/game/karikidouyou" id ="menu__item-link">ランキング</a><br>
+			<a href="/game/karikidouyou" id ="menu__item-link">ショップ</a><br>
+			<a href="/game/karikidouyou" id ="menu__item-link">ログイン</a>
 		</div>
 	</section>
 </body>
