@@ -8,10 +8,12 @@
 <link rel="stylesheet" href="./css/footer.css">
 </head>
 <body>
-	<section class="">
-		<div class="">
-			<h2 class=""></h2>
-			<p class="">i</p>
+	<section class="menu">
+		<div class="menu__item">
+			<a href="/game/karikidouyou" class="menu__item-link">ミニゲーム</a>
+			<a href="/game/karikidouyou" class="menu__item-link">ランキング</a>
+			<a href="/game/karikidouyou" class="menu__item-link">ショップ</a>
+			<a href="/game/karikidouyou" class="menu__item-link">ログイン</a>
 		</div>
 	</section>
 </body>
