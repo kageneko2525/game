@@ -1,5 +1,7 @@
 package model;
 
-public class LoginLogic {
+import dao.BaseDao;
+
+public class LoginLogic extends BaseDao {
 
 }
