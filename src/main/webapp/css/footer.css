@@ -3,9 +3,20 @@
 
 footer{
 	height: 120px;
-	background-image: url('../images/renga.png');
-    background-repeat: repeat;
+	padding-top:10px ;
+	background-image: url('../images/renga2.png');
+    background-repeat: repeat; 
 	background-size: 40px 40px;
 
 
 }
+
+#footer__back--white {
+	margin: auto;
+	margin-top: 10px; 
+	text-align: center;
+	width: 70%;
+	height: 60%;
+	background-color: aliceblue;
+	padding: 10px; 
+  }
