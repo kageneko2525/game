@@ -5,10 +5,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.User;
-
+/**
+ * user表のDAO
+ * @author ねこ
+ *
+ */
 public class UserDao extends BaseDao {
  
-	public boolean findByIdAndPassword(User user) {
+	/**
+	 * IDとハッシュに一致する名前があるか
+	 * @param user ユーザークラス ID,NAMEを設定済みにしてね
+	 * @return true:ある（ログイン成功）false:ない(ログイン失敗)
+	 */
+	public boolean findByIdAndHash(User user) {
 
 		boolean isLogin = false;
 
@@ -16,20 +25,20 @@ public class UserDao extends BaseDao {
 
 			this.connect();
 
-			String sql = "SELECT id, name, hash "
+			String sql = "SELECT user_id, user_name, hash "
 					+ "FROM user "
-					+ "WHERE id = ? "
+					+ "WHERE user_name = ? "
 					+ "AND hash = ? ";
 
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setInt(1, user.getUserId());
+			ps.setString(1, user.getUserName());
 			ps.setString(2, user.getHash());
 			ResultSet rs = ps.executeQuery();
 		
 			if (rs.next()) {
-				String name = rs.getString("name");
-				user.setUserName(name);
+				int id = rs.getInt("user_id");
+				user.setUserId(id);
 				isLogin = true;
 		
 			}

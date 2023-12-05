@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 
 
+
 //サーブレット名、クラス名はそれぞれ変更
 @WebServlet("/Test")
 public class Sample extends HttpServlet {
@@ -33,6 +34,8 @@ public class Sample extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	    
+
 	    
 		//遷移先のサーブレットを指定
 		response.sendRedirect("Index");
