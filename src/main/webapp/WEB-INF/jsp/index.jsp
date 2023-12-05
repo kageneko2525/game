@@ -10,6 +10,7 @@
 </head>
 <body>
 	<section id ="menu">
+<p></p>
 		<div class ="menu__item">
 			<a href="/game/karikidouyou" class ="menu__item-link">ミニゲーム</a><br>
 		</div>
