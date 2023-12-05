@@ -4,7 +4,7 @@ package model;
 public class User {
 private int userId;
 private String userName;
-private String password;
+private String hash;
 
 
 
@@ -24,12 +24,13 @@ public String getUserName() {
 public void setUserName(String userName) {
 	this.userName = userName;
 }
-public String getPassword() {
-	return password;
+public String getHash() {
+	return hash;
 }
-public void setPassword(String password) {
-	this.password = password;
+public void setHash(String hash) {
+	this.hash = hash;
 }
+
 
 
 }
