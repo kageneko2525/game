@@ -7,9 +7,9 @@
 <title>エセガゲームランド</title>
 </head>
 <body>
-	<div id="menu">
-		<p></p>
-	</div>
+
+	<p></p>
+
 </body>
 <footer></footer>
 </html>
