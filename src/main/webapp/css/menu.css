@@ -6,9 +6,8 @@
 
 #menu__item-link {
 	line-height: 5.0;
-	background-image: url('../images/dokan.png');
-	top: 50%;
-	left: 50%;
-	margin: 0;
-	padding: 0;
+	border-style: solid;
+	padding: 15px;
+	text-align: center;
+	
 }
