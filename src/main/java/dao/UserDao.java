@@ -14,6 +14,7 @@ public class UserDao extends BaseDao {
  
 	/**
 	 * IDとハッシュに一致する名前があるか
+	 * IDをセットします
 	 * @param user ユーザークラス ID,NAMEを設定済みにしてね
 	 * @return true:ある（ログイン成功）false:ない(ログイン失敗)
 	 */
