@@ -20,7 +20,7 @@
 			<p class ="menu__item--p">ショップ</p>
 		</div>
 		<div class ="menu__item">			
-			<p class ="menu__item--p">ログイン</p>
+			<a class ="menu__item--p" href="Login">ログイン</a>
 		</div>
 	</section>
 </body>

@@ -38,12 +38,13 @@ public class Login extends HttpServlet {
 			forwardPath = "/WEB-INF/jsp/index.jsp";
 
 		} else {
+			System.out.println("sss");
 			Object loginCheck = session.getAttribute("loginUser");
 			if (loginCheck == null) {
-				forwardPath = "/WEB-INF/jsp/index.jsp";
+				forwardPath = "/WEB-INF/jsp/login.jsp";
 
 			} else {
-				forwardPath = "/WEB-INF/jsp/login.jsp";
+				forwardPath = "/WEB-INF/jsp/index.jsp";
 			}
 		}
 
