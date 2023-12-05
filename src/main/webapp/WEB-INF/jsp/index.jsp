@@ -11,16 +11,16 @@
 <body>
 	<section id ="menu">
 		<div class ="menu__item">
-			<a href="/game/karikidouyou" class ="menu__item-link">ミニゲーム</a><br>
+			ミニゲーム
 		</div>
 		<div class ="menu__item">	
-			<a href="/game/karikidouyou" class ="menu__item-link">ランキング</a><br>
+			ランキング
 		</div>
 		<div class ="menu__item">		
-			<a href="/game/karikidouyou" class ="menu__item-link">ショップ</a><br>
+			ショップ
 		</div>
 		<div class ="menu__item">			
-			<a href="/game/karikidouyou" class ="menu__item-link">ログイン</a>
+			ログイン
 		</div>
 	</section>
 </body>

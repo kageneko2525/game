@@ -1,16 +1,9 @@
 @charset "UTF-8";
 
-#menu__item {
+.menu__item {
 	text-align: right;
 	background-image: url('../images/dokan.png');
 	background-repeat: no-repeat;
 	background-position: right;
-}
-
-#menu__item-link {
-	line-height: 5.0;
-	border-style: solid;
-	padding: 15px;
-	text-align: center;
-
+	background-size: 400px auto;
 }
