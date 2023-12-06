@@ -32,7 +32,6 @@
 			<%}else { %>
 			<a class ="menu__item--link" href="Logout">ログアウト</a>
 			<%} %>
-
 		</div>
 	</section>
 </body>
