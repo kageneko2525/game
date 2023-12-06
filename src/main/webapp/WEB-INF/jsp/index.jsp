@@ -28,11 +28,11 @@
 		<div class ="menu__item">			
 			<a class ="menu__item--link" href="Login">
 			<%if(loginUser==null){ %>
-			ログイン
+			<a class ="menu__item--link" href="Login">ログイン</a>
 			<%}else { %>
-			ログアウト
+			<a class ="menu__item--link" href="Logout">ログアウト</a>
 			<%} %>
-			</a>
+
 		</div>
 	</section>
 </body>
