@@ -11,10 +11,10 @@
 }
 
 .menu__item--link {
-	padding-left: 80px;
+	padding-left: 70px;
 	line-height: 100px;
 	display: block;
-	font-size: 20px;
+	font-size: 25px;
 	font-weight: bold;
 	text-decoration: none;
 	letter-spacing: 15px;
