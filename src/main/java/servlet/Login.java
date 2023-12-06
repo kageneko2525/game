@@ -65,7 +65,7 @@ public class Login extends HttpServlet {
 		if(userIdSt == "" || pass =="") {
 			//IDかpassが入力されていないときの処理とエラーメッセージ
 			session.setAttribute("errorMessage", "IDまたはパスワードが入力されていません。");
-			response.sendRedirect("/dokoTsubu/Login");
+			response.sendRedirect("/game/Login");
 		}else {
 			//入力された時の処理
 			

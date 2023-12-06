@@ -13,7 +13,7 @@
 	<form action="Login" method="post">
 	ユーザー名<input type="text" name="userName"><br>
 	パスワード<input type="password" name="pass">
-	
+	<input type="submit"value="送信">
 	</form>
 </body>
 </html>
