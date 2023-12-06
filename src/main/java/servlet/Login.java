@@ -60,7 +60,6 @@ public class Login extends HttpServlet {
 		//エラーメッセージ初期化
 		session.setAttribute("errorMessage", null);
 		
-		response.sendRedirect("/esegaGameLand/Login");
 		if(userName == "" || pass =="") {
 			//IDかpassが入力されていないときの処理とエラーメッセージ
 			session.setAttribute("errorMessage", "IDまたはパスワードが入力されていません。");
