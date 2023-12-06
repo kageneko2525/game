@@ -13,10 +13,5 @@
 .menu__item--link {
 	padding-left: 55px;
 	line-height: 100px;
-}
-
-.menu__item:hover {
-	box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
-	transform: translateY(-10px);
-	transition-duration: 0.5s;
+	display: block;
 }
