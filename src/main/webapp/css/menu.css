@@ -11,7 +11,11 @@
 }
 
 .menu__item--link {
-	padding-left: 55px;
+	padding-left: 40px;
 	line-height: 100px;
 	display: block;
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: none;
+	letter-spacing: 6px;
 }
