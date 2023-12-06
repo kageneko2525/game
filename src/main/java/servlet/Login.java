@@ -38,7 +38,6 @@ public class Login extends HttpServlet {
 			forwardPath = "/WEB-INF/jsp/index.jsp";
 
 		} else {
-			System.out.println("sss");
 			Object loginCheck = session.getAttribute("loginUser");
 			if (loginCheck == null) {
 				forwardPath = "/WEB-INF/jsp/login.jsp";
@@ -53,7 +52,7 @@ public class Login extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userIdSt =request.getParameter("userId");
+		String userName =request.getParameter("userName");
 		String pass = request.getParameter("pass");
 		
 		HttpSession session = request.getSession();
@@ -61,20 +60,17 @@ public class Login extends HttpServlet {
 		//エラーメッセージ初期化
 		session.setAttribute("errorMessage", null);
 		
-		response.sendRedirect("/dokoTsubu/Login");
-		if(userIdSt == "" || pass =="") {
+		response.sendRedirect("/esegaGameLand/Login");
+		if(userName == "" || pass =="") {
 			//IDかpassが入力されていないときの処理とエラーメッセージ
 			session.setAttribute("errorMessage", "IDまたはパスワードが入力されていません。");
-			response.sendRedirect("/game/Login");
+			response.sendRedirect("/esegaGameLand/Login");
 		}else {
 			//入力された時の処理
 			
 			//user仮置き
 			User user = new User();
-			//idをint変換
-			int userId = Integer.parseInt(userIdSt);
-			user.setUserId(userId);
-
+			user.setUserName(userName);
 			//ハッシュ化処理
 			byte[] cipher_byte;
 			try {
@@ -97,11 +93,11 @@ public class Login extends HttpServlet {
 				//ログインする
 				session.setAttribute("loginUser", user);
 				session.setMaxInactiveInterval(60*10);
-				response.sendRedirect("/game/Index");
+				response.sendRedirect("/esegaGameLand/Index");
 			} else {
 				//しないときはエラーメッセージをつけてloginへ
 				session.setAttribute("errorMessage", "存在しないID、またはパスワードが間違っています。");
-			    response.sendRedirect("/game/Login");
+			    response.sendRedirect("/esegaGameLand/Login");
 			}
 			
 		}
