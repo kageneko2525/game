@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.menu__item {
+	width: 270px;
+	height: 100px;
+	background-image: url('../images/dokan.png');
+	background-repeat: no-repeat;
+	background-position: right;
+	background-size: 100% 100%;
+	margin: 0 0 20px auto;
+}
+
+.menu__item--link {
+	padding-left: 70px;
+	line-height: 100px;
+	display: block;
+	font-size: 25px;
+	font-weight: bold;
+	text-decoration: none;
+	letter-spacing: 15px;
+}

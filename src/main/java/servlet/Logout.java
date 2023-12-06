@@ -11,25 +11,24 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-
-
-//サーブレット名、クラス名はそれぞれ変更
-@WebServlet("/Test")
-public class Sample extends HttpServlet {
+/**
+ * ログアウト用サーブレット
+ * @author エセガ
+ *
+ */
+@WebServlet("/Logout")
+public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
-    public Sample() {
+    public Logout() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//リダイレクト先のパスを入れる変数
-		String path = null;
 		HttpSession session = request.getSession();
+		session.invalidate();
 
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/logout.jsp");
 		dispatcher.forward(request, response);
 	}
 
