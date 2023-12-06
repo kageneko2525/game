@@ -26,7 +26,13 @@
 			<a class ="menu__item--link" href="karikidouyou">ショップ</a>
 		</div>
 		<div class ="menu__item">			
-			<a class ="menu__item--link" href="Login">ログイン</a>
+			<a class ="menu__item--link" href="Login">
+			<%if(loginUser==null){ %>
+			ログイン
+			<%}else { %>
+			ログアウト
+			<%} %>
+			</a>
 		</div>
 	</section>
 </body>
