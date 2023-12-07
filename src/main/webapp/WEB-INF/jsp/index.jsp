@@ -7,10 +7,15 @@
 <head>
 <meta charset="UTF-8">
 <title>エセガゲームランド</title>
+<link rel="stylesheet" href="./css/header.css">
 <link rel="stylesheet" href="./css/menu.css">
 <link rel="stylesheet" href="./css/footer.css">
 </head>
 <body>
+<div id ="header">
+<img id="header__image" alt="headerimage" src="./images/header.png">
+</div>
+
 <%if(loginUser==null){ %>
 <%}else { %>
 <p><%=loginUser.getUserName() %>さん</p>

@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+#header__image {
+	width: 640px;
+}
+
+#header {
+	margin-bottom: 50px;
+	display: flex;
+	justify-content: center;
+}
