@@ -9,6 +9,7 @@
 </head>
 <header>
 	<h1>ミニゲーム一覧</h1>
+	<h3>所持ポイント: 0pt</h3>
 </header>
 <body>
 
