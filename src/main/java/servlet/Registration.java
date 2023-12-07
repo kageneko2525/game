@@ -10,30 +10,51 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.RegistrationLogic;
 
 @WebServlet("/Registration")
 public class Registration extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public Registration() {
-        super();
+	public Registration() {
+		super();
 
-    }
+	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		//リダイレクト先のパスを入れる変数
 		String path = null;
 		HttpSession session = request.getSession();
 
+		//エラーメッセージ初期化
+		session.setAttribute("registrarionError", "");
 		path = "/WEB-INF/jsp/registration.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		//リダイレクト先のパスを入れる変数
+		String path = null;
+		HttpSession session = request.getSession();
 
-	    
+		String registrarionName = request.getParameter("registrationName");
+		String pass = request.getParameter("pass");
+		String samePass = request.getParameter("samePass");
+
+
+		//エラーメッセージ初期化
+		session.setAttribute("registrarionError", "");
+
+		RegistrationLogic registrationLogic = new RegistrationLogic();
+
+
+
+			registrationLogic.chackRegistration(registrarionName, pass, samePass);
+
+
 		//遷移先のサーブレットを指定
 		response.sendRedirect("Index");
 	}

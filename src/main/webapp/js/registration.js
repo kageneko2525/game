@@ -17,11 +17,12 @@
 				var userInput = document.getElementById("form__inputText1").value;
 				if (userInput != "") {
 					// 正規表現を使用して検証
-					var pattern = /^[a-zA-Z0-9_]+$/;
+					var pattern = /^[\w\uFF10-\uFF19\uFF21-\uFF3A\uFF41-\uFF5A\u3041-\u3096\u30A1-\u30FA\u3400-\u4DBF\u4E00-\u9FFF_()=;:$%&'.・*!?]+$/;
+					
 
 					// 例: 正規表現に一致しない場合にエラーメッセージを表示
 					if (!pattern.test(userInput)) {
-						document.getElementById("error1").innerText = "大文字、小文字の英字、数字、アンダースコアのみ使用できます ";
+						document.getElementById("error1").innerText = "使用できない文字が含まれています ";
 						changeButton()
 					} else if (userInput.length > 16) {
 						document.getElementById("error1").innerText = "ユーザー名は16文字までです";
