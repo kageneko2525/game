@@ -23,7 +23,7 @@
 
 <%if(loginUser==null){ %>
 <%}else { %>
-<p><%=loginUser.getUserName() %>さん</p>
+<p>ようこそ、<%=loginUser.getUserName() %>さん</p>
 <%} %>
 	<section id ="menu">
 		<div class ="menu__item">
