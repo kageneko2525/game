@@ -17,7 +17,9 @@
 <div id ="header">
 <img id="header__image" alt="headerimage" src="./images/header.png">
 </div>
+<header>
 <h1>エセガゲームランド</h1>
+</header>
 
 <%if(loginUser==null){ %>
 <%}else { %>
