@@ -33,8 +33,7 @@
 		<div class ="menu__item">		
 			<a class ="menu__item--link" href="Index">ショップ</a>
 		</div>
-		<div class ="menu__item">			
-			<a class ="menu__item--link" href="Login">
+		<div class ="menu__item">
 			<%if(loginUser==null){ %>
 			<a class ="menu__item--link" href="Login">ログイン</a>
 			<%}else { %>
