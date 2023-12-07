@@ -15,5 +15,6 @@
 	パスワード<input type="password" name="pass">
 	<input type="submit"value="送信">
 	</form>
+	<a href="Index">戻る</a>
 </body>
 </html>

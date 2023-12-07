@@ -11,11 +11,13 @@
 <link rel="stylesheet" href="./css/header.css">
 <link rel="stylesheet" href="./css/menu.css">
 <link rel="stylesheet" href="./css/footer.css">
+<link rel="stylesheet" href="./css/logo.css">
 </head>
 <body>
 <div id ="header">
 <img id="header__image" alt="headerimage" src="./images/header.png">
 </div>
+<h1>エセガゲームランド</h1>
 
 <%if(loginUser==null){ %>
 <%}else { %>

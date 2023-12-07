@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p></p>
+	<form action="Registration" method="post">
+	ユーザー名 <input type="text" class="form__inputText" name="userName"><br>
+	パスワード<input type="password" class="form__inputText" name="pass1">
+	パスワード再入力<input type="password"class="form__inputText" name="pass2">
+	<input type="submit" value="送信">
+	</form>
 </body>
 </html>
