@@ -17,13 +17,13 @@
 <%} %>
 	<section id ="menu">
 		<div class ="menu__item">
-			<a class ="menu__item--link" href="karikidouyou">ミニゲーム</a>
+			<a class ="menu__item--link" href="Index">ミニゲーム</a>
 		</div>
 		<div class ="menu__item">	
-			<a class ="menu__item--link" href="karikidouyou">ランキング</a>
+			<a class ="menu__item--link" href="Index">ランキング</a>
 		</div>
 		<div class ="menu__item">		
-			<a class ="menu__item--link" href="karikidouyou">ショップ</a>
+			<a class ="menu__item--link" href="Index">ショップ</a>
 		</div>
 		<div class ="menu__item">			
 			<a class ="menu__item--link" href="Login">
