@@ -8,6 +8,6 @@
 </head>
 <body>
 	<p>ログアウトしました</p>
-	<a href="Index">ホーム画面へ</a>
+	<a href="Index">TOPへ</a>
 </body>
 </html>
