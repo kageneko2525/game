@@ -18,6 +18,11 @@
 	font-weight: bold;
 	text-decoration: none;
 	letter-spacing: 12px;
+	color: black;
+}
+
+.menu__item:visited {
+	color: black;
 }
 
 .menu__item:hover {
