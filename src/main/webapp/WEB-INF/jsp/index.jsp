@@ -46,7 +46,7 @@
 </body>
 <footer>
 <div id ="footer__back--white">
-<a href="#">TOPへ</p>
+<a href="#">TOPへ</a>
 </div>
 </footer>
 </html>
