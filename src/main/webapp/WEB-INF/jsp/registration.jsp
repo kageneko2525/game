@@ -17,8 +17,7 @@
 		パスワード再入力<input type="password" id="form__inputText3" name="samePass">
 		<div id="error3" style="color: red;"></div>
 		<input id="form--button" type="submit" value="送信">
-
 	</form>
-	</form>
+	<a href="Index">Topへ</a>　　<a href="Login">ログイン画面へ</a>　　
 </body>
 </html>

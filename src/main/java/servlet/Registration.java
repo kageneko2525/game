@@ -64,6 +64,7 @@ public class Registration extends HttpServlet {
 			//エラーメッセージがあるならエラーメッセージを設定し登録画面へ
 			
 			session.setAttribute("registrarionError", registrarionError);
+			session.setMaxInactiveInterval(60*10);
 			path="Registration";
 		}
 		
