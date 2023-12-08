@@ -16,7 +16,7 @@
 </body>
 <footer>
 	<div id="footer__back--white">
-		<a href="#">TOPへ</a>
+		<a href="Index">TOPへ</a>
 	</div>
 </footer>
 </html>

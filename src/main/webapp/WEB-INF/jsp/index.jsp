@@ -27,7 +27,7 @@
 <%} %>
 	<section id ="menu">
 		<div class ="menu__item">
-			<a class ="menu__item--link" href="Index">ミニゲーム</a>
+			<a class ="menu__item--link" href="Gamemenu">ミニゲーム</a>
 		</div>
 		<div class ="menu__item">	
 			<a class ="menu__item--link" href="Index">ランキング</a>
@@ -46,7 +46,7 @@
 </body>
 <footer>
 <div id ="footer__back--white">
-<a href="#">TOPへ</a>
+<a href="Index">TOPへ</a>
 </div>
 </footer>
 </html>
