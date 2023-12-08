@@ -176,7 +176,7 @@ public class UserDao extends BaseDao {
 			this.connect();
 			UserDao userDao = new UserDao();
 
-			String sql = "INSERT INTO mutter (user_id , user_name , hash, exist_flg ) VALUES (?, ?, ?, '1')";
+			String sql = "INSERT INTO User (user_id , user_name , hash, exist_flg ) VALUES (?, ?, ?, '1')";
 
 			PreparedStatement ps = con.prepareStatement(sql);
 			int id = userDao.findAllUser().size() + 1;

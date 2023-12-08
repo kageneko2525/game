@@ -28,8 +28,7 @@ public class Registration extends HttpServlet {
 		String path = null;
 		HttpSession session = request.getSession();
 
-		//エラーメッセージ初期化
-		session.setAttribute("registrarionError", "");
+
 		path = "/WEB-INF/jsp/registration.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
@@ -37,10 +36,15 @@ public class Registration extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		
 		//リダイレクト先のパスを入れる変数
 		String path = null;
 		HttpSession session = request.getSession();
 
+		request.setCharacterEncoding("UTF-8");
+
+		
 		String registrartionName = request.getParameter("registrationName");
 		String pass = request.getParameter("pass");
 		String samePass = request.getParameter("samePass");
@@ -48,27 +52,29 @@ public class Registration extends HttpServlet {
 		User registrationUser = new User();
 		
 		//エラーメッセージ初期化
-		session.setAttribute("registrarionError", "");
+		session.setAttribute("registrationErrorr", "");
 		
 
 		RegistrationLogic registrationLogic = new RegistrationLogic();
 
 		String registrarionError = registrationLogic.chackRegistration(registrartionName, pass, samePass ,registrationUser);
-
+		
 		if(registrarionError == null ||registrarionError.isEmpty()) {
 			//エラーメッセージがないなら登録成功
 			//indexへ
+			
 			session.setAttribute("loginUser", registrationUser);
 			path ="Index";
+			session.setMaxInactiveInterval(60*10);
 		}else {
 			//エラーメッセージがあるならエラーメッセージを設定し登録画面へ
 			
-			session.setAttribute("registrarionError", registrarionError);
-			session.setMaxInactiveInterval(60*10);
+			session.setAttribute("registrationError", registrarionError);
 			path="Registration";
 		}
 		
 		//遷移先のサーブレットを指定
+		
 		response.sendRedirect(path);
 	}
 

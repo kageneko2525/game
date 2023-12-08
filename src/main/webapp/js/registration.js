@@ -55,8 +55,11 @@
 					if (!pattern.test(userInput)) {
 						document.getElementById("error2").innerText = "使用できない文字が含まれています";
 						changeButton()
+					}else if(userInput.length < 8){
+						document.getElementById("error2").innerText = "パスワードが短すぎます";
+						changeButton()
 					} else {
-						document.getElementById("error1").innerText = "";
+						document.getElementById("error2").innerText = "";
 						changeSubmit()
 					}
 
