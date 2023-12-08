@@ -17,6 +17,9 @@ public class RegistrationLogic {
 
 		//登録したいユーザー
 		User registrationUser = new User();
+		
+		registrationUser.setUserName(userName);
+		registrationUser.setHash(hash);
 
 		//パスワードの中身がなかったり空白だったりか判断
 		if (pass == null || samePass == null || pass.isEmpty() || samePass.isEmpty()) {
@@ -29,7 +32,8 @@ public class RegistrationLogic {
 			
 			//名前の長さ判定
 			if(userName.length()>16) {
-				
+				//長すぎたらエラーメッセージ
+				return "ユーザー名は16文字以下までです";
 			}
 			
 			//正しい名前とパスワードか判定
@@ -49,8 +53,8 @@ public class RegistrationLogic {
 						return "すでに同じユーザー名の人がいます";
 					} else {
 						//いないなら
-						//登録処理
-
+						//登録処理をしてエラーメッセージなしで返す
+						userDao.setUser(registrationUser);
 						return null;
 					}
 
@@ -104,6 +108,6 @@ public class RegistrationLogic {
 		Matcher matcher = regex.matcher(pass);
 
 		// マッチがあれば無効な文字が含まれているとみなす
-		return !matcher.find();
+		return matcher.find() && !pass.contains("/");
 	}
 }
