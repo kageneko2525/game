@@ -6,7 +6,18 @@ import java.util.regex.Pattern;
 import dao.UserDao;
 
 public class RegistrationLogic {
-	public String chackRegistration(String userName, String pass, String samePass) {
+	
+	
+	/**
+	 * 登録可能かチェックします
+	 * もらったUserにID, NAME , HASHをセットします
+	 * @param userName 登録したい名前
+	 * @param pass 登録したいパスワード
+	 * @param samePass 再入力したパスワード
+	 * @param registrationUser 登録したUserをいれる用のUser
+	 * @return null:登録成功 それ以外:登録失敗。失敗内容に応じたエラーメッセージ
+	 */
+	public String chackRegistration(String userName, String pass, String samePass,User registrationUser) {
 		hashLogic hashLogic = new hashLogic();
 
 		String hash = "";
@@ -16,7 +27,6 @@ public class RegistrationLogic {
 		sameHash = hashLogic.doHash(samePass);
 
 		//登録したいユーザー
-		User registrationUser = new User();
 		
 		registrationUser.setUserName(userName);
 		registrationUser.setHash(hash);

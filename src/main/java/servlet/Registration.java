@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.RegistrationLogic;
+import model.User;
 
 @WebServlet("/Registration")
 public class Registration extends HttpServlet {
@@ -40,23 +41,34 @@ public class Registration extends HttpServlet {
 		String path = null;
 		HttpSession session = request.getSession();
 
-		String registrarionName = request.getParameter("registrationName");
+		String registrartionName = request.getParameter("registrationName");
 		String pass = request.getParameter("pass");
 		String samePass = request.getParameter("samePass");
 
-
+		User registrationUser = new User();
+		
 		//エラーメッセージ初期化
 		session.setAttribute("registrarionError", "");
+		
 
 		RegistrationLogic registrationLogic = new RegistrationLogic();
 
+		String registrarionError = registrationLogic.chackRegistration(registrartionName, pass, samePass ,registrationUser);
 
-
-			registrationLogic.chackRegistration(registrarionName, pass, samePass);
-
-
+		if(registrarionError == null ||registrarionError.isEmpty()) {
+			//エラーメッセージがないなら登録成功
+			//indexへ
+			session.setAttribute("loginUser", registrationUser);
+			path ="Index";
+		}else {
+			//エラーメッセージがあるならエラーメッセージを設定し登録画面へ
+			
+			session.setAttribute("registrarionError", registrarionError);
+			path="Registration";
+		}
+		
 		//遷移先のサーブレットを指定
-		response.sendRedirect("Index");
+		response.sendRedirect(path);
 	}
 
 }
