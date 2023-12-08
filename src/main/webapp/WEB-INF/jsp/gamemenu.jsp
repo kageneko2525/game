@@ -6,10 +6,11 @@
 <meta charset="UTF-8">
 <title>エセガゲームランド</title>
 <link rel="stylesheet" href="./css/gamemenu.css">
+<link rel="stylesheet" href="./css/footer.css">
 </head>
 <header>
 	<h1>ミニゲーム一覧</h1>
-	<h3>所持ポイント: 0pt</h3>
+	<h2>所持ポイント: 0pt</h2>
 </header>
 <body>
 
