@@ -1,3 +1,4 @@
+
 		function changeButton() {
 			let button = document.getElementById("form--button");
 			button.type = "button"
@@ -100,3 +101,4 @@
 			// input要素に対してinputイベントを追加
 			document.getElementById("form__inputText3").addEventListener("input", checkInputSamePass);
 		});
+
