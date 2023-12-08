@@ -16,7 +16,7 @@ public class UserDao extends BaseDao {
 
 	/**
 	 * IDとハッシュに一致する名前があるか
-	 * IDをセットします
+	 * 　　もらったUserにIDをセットします
 	 * @param user ユーザークラス ID,NAMEを設定済みにしてね
 	 * @return true:ある（ログイン成功）false:ない(ログイン失敗)
 	 * @author ねこ
@@ -115,6 +115,7 @@ public class UserDao extends BaseDao {
 		return isExistence;
 	}
 
+	
 	/**
 	 * すべてのユーザー取得し、アレイリストに入れてもどす
 	 * @return すべてのユーザーが入ったアレイリスト
@@ -199,5 +200,12 @@ public class UserDao extends BaseDao {
 		return false;
 
 	}
+
+
+
+
+
+
+
 
 }
