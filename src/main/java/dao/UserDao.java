@@ -67,12 +67,12 @@ public class UserDao extends BaseDao {
 		return isLogin;
 	}
 
-	/**
-	 * 名前に一致する名前があるか
-	 * @param user ユーザークラス NAMEを設定済みにしてね
-	 * @return true:ある（すでに同じ名前の人がいる）false:いない
-	 * @author ねこ
-	 */
+/**
+ * 引数と一致するユーザーが存在するか
+ * @param userName 調べたい名前
+ * @return true;存在する fales:存在しない
+ * @author ねこ
+ */
 	public boolean findByName(String userName) {
 		//Existence:存在
 		boolean isExistence = false;
