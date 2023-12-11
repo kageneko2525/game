@@ -3,20 +3,25 @@ package dao;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-
 import model.Point;
 
 public class PointDao extends BaseDao {
 
-	public point getPoint() {
+	/**
+	 * 
+	 * @return
+	 */
+	public Point findPoint() {
+		
 		return null;
 	}
 
-	public int UpdatePoint(Point point ) {
+	public int setPoint(Point point ) {
 		try {
 			this.connect();
 			
-			String sql = "UPDATE point set point=point+ where user_id=?";
+			String sql = "UPDATE point set point=point+" 
+			+ " where user_id=?";
 			
 			PreparedStatement ps = con.prepareStatement(sql);
 			
