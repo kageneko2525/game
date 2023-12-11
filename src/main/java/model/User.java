@@ -5,6 +5,7 @@ public class User {
 private int userId;
 private String userName;
 private String hash;
+private String isexsit="1";
 
 
 
@@ -12,6 +13,12 @@ private String hash;
 
 
 
+public String getIsexsit() {
+	return isexsit;
+}
+public void setIsexsit(String isexsit) {
+	this.isexsit = isexsit;
+}
 public int getUserId() {
 	return userId;
 }
