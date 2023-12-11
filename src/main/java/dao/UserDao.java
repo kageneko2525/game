@@ -119,7 +119,7 @@ public class UserDao extends BaseDao {
 	/**
 	 * すべてのユーザー取得し、アレイリストに入れてもどす
 	 * @return すべてのユーザーが入ったアレイリスト
-	 * 			登録者０のときnull
+	 * 			登録者０のとき空のリスト
 	 * @author ねこ
 	 */
 	public ArrayList<User> findAllUser() {
