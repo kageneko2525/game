@@ -70,7 +70,7 @@ public class UserDao extends BaseDao {
 /**
  * 引数と一致するユーザーが存在するか
  * @param userName 調べたい名前
- * @return true;存在する fales:存在しない
+ * @return true;存在する false:存在しない
  * @author ねこ
  */
 	public boolean findByName(String userName) {
