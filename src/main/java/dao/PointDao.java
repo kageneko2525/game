@@ -9,11 +9,12 @@ import model.Point;
 public class PointDao extends BaseDao {
 
 	/**
-	 * 現在ログインしているユーザーの所持ポイントを確認
-	 * @return ユーザーの所持ポイント
+	 * 現在ログインしているユーザーの所持ポイントを取得
+	 * @return true:取得成功　false:取得失敗
 	 * @author エセガ
 	 */
-	public int findPoint(Point point) {
+	public boolean findPoint(Point point) {
+		boolean isPoint = false;
 		try {
 
 			this.connect();
@@ -32,6 +33,7 @@ public class PointDao extends BaseDao {
 			if (rs.next()) {
 				int poi = rs.getInt("point");
 				point.setPoint(poi);
+				isPoint = true;
 			}
 
 		} catch (Exception e) {
@@ -50,16 +52,17 @@ public class PointDao extends BaseDao {
 
 			}
 		}
-		return point.getPoint();
+		return isPoint;
 	}
 
 	/**
 	 * 
-	 *現在ログインしているユーザーの総獲得ポイントを確認
-	 * @return ユーザーの総獲得ポイント
+	 *現在ログインしているユーザーの総獲得ポイントを取得
+	 * @return true:取得成功　false:取得失敗
 	 * @author エセガ
 	 */
-	public int findSum_Point(Point point) {
+	public boolean findSum_Point(Point point) {
+		boolean isSumPoint = false;
 		try {
 
 			this.connect();
@@ -78,6 +81,7 @@ public class PointDao extends BaseDao {
 			if (rs.next()) {
 				int sum = rs.getInt("sum_point");
 				point.setSumPoint(sum);
+				isSumPoint = true;
 			}
 
 		} catch (Exception e) {
@@ -96,17 +100,17 @@ public class PointDao extends BaseDao {
 
 			}
 		}
-		return point.getSumPoint();
+		return isSumPoint;
 	}
 
 	/**
 	 * ゲームで獲得したポイントを所持ポイントに加算
-	 * 
-	 * @return 獲得ポイントを加算したユーザーの所持ポイント
+	 * @return true:加算成功　false:加算失敗
 	 * @author エセガ
 	 */
 
-	public int setPoint(Point point) {
+	public boolean updatePoint(Point point) {
+		boolean isUpdate = false;
 
 		//ゲームで獲得したポイントを入れる変数(後々修正する)(とりあえずの仮置き)
 		int TMP = 0;
@@ -126,6 +130,7 @@ public class PointDao extends BaseDao {
 			if (rs.next()) {
 				int poi = rs.getInt("point");
 				point.setPoint(poi);
+				isUpdate = true;
 			}
 
 		} catch (Exception e) {
@@ -137,15 +142,16 @@ public class PointDao extends BaseDao {
 				e.printStackTrace();
 			}
 		}
-		return point.getPoint();
+		return isUpdate;
 	}
 
 	/**
 	 * 総獲得ポイントを更新
-	 * @return 獲得ポイントを加算したユーザーの総獲得ポイント
+	 * @return true:更新成功　false:更新失敗
 	 * @author エセガ
 	 */
-	public int setSum_Point(Point point) {
+	public boolean updateSum_Point(Point point) {
+		boolean isUpdate = false;
 
 		//ゲームで獲得したポイントを入れる変数(後々修正する)(とりあえずの仮置き)
 		int TMP = 0;
@@ -165,6 +171,7 @@ public class PointDao extends BaseDao {
 			if (rs.next()) {
 				int poi = rs.getInt("point");
 				point.setSumPoint(poi);
+				isUpdate = true;
 			}
 
 		} catch (Exception e) {
@@ -176,6 +183,6 @@ public class PointDao extends BaseDao {
 				e.printStackTrace();
 			}
 		}
-		return point.getSumPoint();
+		return isUpdate;
 	}
 }
