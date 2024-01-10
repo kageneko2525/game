@@ -5,7 +5,7 @@ public class User {
 private int userId;
 private String userName;
 private String hash;
-private String isexsit="1";
+private String isExsit="1";
 
 
 
@@ -13,11 +13,11 @@ private String isexsit="1";
 
 
 
-public String getIsexsit() {
-	return isexsit;
+public String getIsExsit() {
+	return isExsit;
 }
-public void setIsexsit(String isexsit) {
-	this.isexsit = isexsit;
+public void setIsExsit(String isexsit) {
+	this.isExsit = isexsit;
 }
 public int getUserId() {
 	return userId;
