@@ -42,4 +42,25 @@ public class GamePointDao extends BaseDao {
 		return isUpdate;
 	}
 
+	public boolean setGame_Max_Point(GamePoint gamepoint) {
+		try {
+			this.connect();
+
+			String sql = "INSERT INTO game_point(user_id,game_id,max_game_point)VALUES(?,?,?)";
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			return true;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				this.disConnect();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return false;
+
+	}
 }
