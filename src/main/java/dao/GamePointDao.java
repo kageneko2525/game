@@ -49,6 +49,9 @@ public class GamePointDao extends BaseDao {
 			String sql = "INSERT INTO game_point(user_id,game_id,max_game_point)VALUES(?,?,?)";
 			PreparedStatement ps = con.prepareStatement(sql);
 
+			ps.setInt(1, gamepoint.getUserId());
+			ps.setInt(2, gamepoint.getGameId());
+			ps.setInt(3, gamepoint.getMaxGamePoint());
 			return true;
 
 		} catch (Exception e) {
