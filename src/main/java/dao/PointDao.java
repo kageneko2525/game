@@ -112,19 +112,18 @@ public class PointDao extends BaseDao {
 	public boolean updatePoint(Point point) {
 		boolean isUpdate = false;
 
-		//ゲームで獲得したポイントを入れる変数(後々修正する)(とりあえずの仮置き)
-		int TMP = 0;
 		try {
 			this.connect();
 
-			String sql = "UPDATE point set point=point+" + TMP
+			String sql = "UPDATE point set point=point+?"
 					+ " where user_id=?";
 
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			//いまログインしてる人のIDをここに入れたいけどどうやって入れればいいか分からん
 			//とりあえず今はpoint表のuserId入れてる
-			ps.setInt(1, point.getUserId());
+			ps.setInt(1, point.getPoint());
+			ps.setInt(2, point.getUserId());
 			ResultSet rs = ps.executeQuery();
 
 			if (rs.next()) {
@@ -153,19 +152,18 @@ public class PointDao extends BaseDao {
 	public boolean updateSum_Point(Point point) {
 		boolean isUpdate = false;
 
-		//ゲームで獲得したポイントを入れる変数(後々修正する)(とりあえずの仮置き)
-		int TMP = 0;
 		try {
 			this.connect();
 
-			String sql = "UPDATE point set sum_point=sum_point+" + TMP
+			String sql = "UPDATE point set sum_point=sum_point+?"
 					+ " where user_id=?";
 
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			//いまログインしてる人のIDをここに入れたいけどどうやって入れればいいか分からん
 			//とりあえず今はpoint表のuserId入れてる
-			ps.setInt(1, point.getUserId());
+			ps.setInt(1, point.getPoint());
+			ps.setInt(2, point.getUserId());
 			ResultSet rs = ps.executeQuery();
 
 			if (rs.next()) {
