@@ -21,9 +21,10 @@ public class Gamemenu extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		//リダイレクト先のパスを入れる変数
+		String path = "/WEB-INF/jsp/gamemenu.jsp";
 		HttpSession session = request.getSession();
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/gamemenu.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}
 
