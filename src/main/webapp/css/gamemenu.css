@@ -1,1 +1,13 @@
 @charset "UTF-8";
+
+		.box {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+
+		}
+
+		.gameBox {
+			text-align: center;
+			border: 1px black solid;
+		}

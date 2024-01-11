@@ -13,7 +13,22 @@
 	<h2>所持ポイント: 0pt</h2>
 </header>
 <body>
-
+<main>
+		<div class="box">
+			<div class="gameBox">
+				<p></p>
+				<img src="" alt="">
+			</div>
+			<div class="gameBox">
+				<p></p>
+				<img src="" alt="">
+			</div>
+			<div class="gameBox">
+				<p></p>
+				<img src="" alt="">
+			</div>
+		</div>
+	</main>
 </body>
 <footer>
 	<div id="footer__back--white">
