@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+
+
+
+		img {
+			-webkit-user-drag: none;
+			/* Safari, iOS Safari */
+			user-drag: none;
+			/* その他のブラウザ */
+			user-select: none;
+		}
+
+		
+
+		#imagesBox {
+			border: 1px black solid;
+			width: 500px;
+			height: 400px;
+
+		}
+
+		#imagesBox img {
+
+			width: 25px;
+			position: absolute;
+			height: 25px;
+		}
