@@ -67,12 +67,12 @@ public class UserDao extends BaseDao {
 		return isLogin;
 	}
 
-/**
- * 引数と一致するユーザーが存在するか
- * @param userName 調べたい名前
- * @return true;存在する false:存在しない
- * @author ねこ
- */
+	/**
+	 * 引数と一致するユーザーが存在するか
+	 * @param userName 調べたい名前
+	 * @return true;存在する false:存在しない
+	 * @author ねこ
+	 */
 	public boolean findByName(String userName) {
 		//Existence:存在
 		boolean isExistence = false;
@@ -115,7 +115,6 @@ public class UserDao extends BaseDao {
 		return isExistence;
 	}
 
-	
 	/**
 	 * すべてのユーザー取得し、アレイリストに入れてもどす
 	 * @return すべてのユーザーが入ったアレイリスト
@@ -131,6 +130,55 @@ public class UserDao extends BaseDao {
 
 			String sql = "SELECT user_id, user_name, hash "
 					+ "FROM user ";
+
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				User user = new User();
+				user.setUserId(rs.getInt("user_id"));
+				user.setUserName(rs.getString("user_name"));
+				user.setHash("hash");
+				userList.add(user);
+			}
+			return userList;
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			try {
+
+				this.disConnect();
+
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+
+			}
+		}
+
+		return null;
+	}
+
+	
+	/**
+	 * 退会してないユーザーを取得し、アレイリストに入れてもどす
+	 * @return 退会してないユーザーが入ったアレイリスト
+	 * 			登録者０のとき空のリスト
+	 * @author 山
+	 */
+	public ArrayList<User> findExsitUser() {
+		//ユーザーを入れるリスト
+		ArrayList<User> userList = new ArrayList<User>();
+		try {
+
+			this.connect();
+
+			String sql = "SELECT user_id, user_name, hash "
+					+ "FROM user WHERE exist_flg = 1";
 
 			PreparedStatement ps = con.prepareStatement(sql);
 
@@ -200,12 +248,5 @@ public class UserDao extends BaseDao {
 		return false;
 
 	}
-
-
-
-
-
-
-
 
 }
