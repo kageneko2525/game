@@ -14,14 +14,15 @@ public class GamePointDao extends BaseDao {
 		try {
 			this.connect();
 
-			String sql = "UPDATE game_point set max_game_point="
+			String sql = "UPDATE game_point set max_game_point=?"
 					+ " where user_id=?"
 					+ " and game_id=?";
 
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setInt(1, gamepoint.getUserId());
-			ps.setInt(2, gamepoint.getGameId());
+			ps.setInt(1, 0);
+			ps.setInt(2, gamepoint.getUserId());
+			ps.setInt(3, gamepoint.getGameId());
 			ResultSet rs = ps.executeQuery();
 
 			if (rs.next()) {
