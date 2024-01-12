@@ -3,6 +3,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+.box {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.gameBox {
+	text-align: center;
+	border: 1px black solid;
+}
+</style>
 <meta charset="UTF-8">
 <title>エセガゲームランド</title>
 <link rel="stylesheet" href="./css/gamemenu.css">
@@ -13,19 +25,19 @@
 	<h2>所持ポイント: 0pt</h2>
 </header>
 <body>
-<main>
+	<main>
 		<div class="box">
 			<div class="gameBox">
 				<p></p>
-				<img src="" alt="">
+				<a href=""><img src="" alt=""></a>
+			</div>
+			<div class="gameBox">
+				<p>あいつをさがせ！</p>
+				<a href=""><img src="" alt=""></a>
 			</div>
 			<div class="gameBox">
 				<p></p>
-				<img src="" alt="">
-			</div>
-			<div class="gameBox">
-				<p></p>
-				<img src="" alt="">
+				<a href=""><img src="" alt=""></a>
 			</div>
 		</div>
 	</main>
