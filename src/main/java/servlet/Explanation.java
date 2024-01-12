@@ -23,14 +23,18 @@ public class Explanation extends HttpServlet {
 		//リダイレクト先のパスを入れる変数
 		String path = "/WEB-INF/jsp/explanation/ex";
 		HttpSession session = request.getSession();
+		
 
 		String gamePath = request.getParameter("game");
 
 		path = path + gamePath+".jsp";
-		System.out.println(path);
-		System.out.println("/WEB-INF/jsp/explanation/exForlook.jsp");
-		System.out.println(path.equals("/WEB-INF/jsp/explanation/exForlook.jsp"));
-//		path = "/WEB-INF/jsp/explanation/exForlook.jsp";
+		
+		if(session==null) {
+			path ="/WEB-INF/jsp/login.jsp";
+		}
+		if(gamePath ==null) {
+			path = "/WEB-INF/jsp/gamemenu.jsp";
+		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}
