@@ -10,16 +10,18 @@ public class PointDao extends BaseDao {
 
 	/**
 	 * 現在ログインしているユーザーの所持ポイントを取得
+	 * ポイントを格納して返すよ
+	 * @param point ポイント格納用
 	 * @return true:取得成功　false:取得失敗
 	 * @author エセガ
 	 */
-	public boolean findPoint(Point point) {
+	public boolean getPoint(Point point) {
 		boolean isPoint = false;
 		try {
 
 			this.connect();
 
-			String sql = "SELECT user_id, point"
+			String sql = "SELECT user_id, point , sum_point"
 					+ "FROM point"
 					+ "WHERE user_id = ? ";
 
@@ -31,8 +33,8 @@ public class PointDao extends BaseDao {
 			ResultSet rs = ps.executeQuery();
 
 			if (rs.next()) {
-				int poi = rs.getInt("point");
-				point.setPoint(poi);
+				point.setSumPoint(rs.getInt("sum_point"));
+				point.setPoint(rs.getInt("point"));
 				isPoint = true;
 			}
 
