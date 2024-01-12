@@ -33,7 +33,7 @@
 			</div>
 			<div class="gameBox">
 				<p>あいつをさがせ！</p>
-				<a href=""><img src="" alt=""></a>
+				<a href="Explanation?game=Lookfor"><img src="./images/gameImg/sample_lookfor.png" alt=""></a>
 			</div>
 			<div class="gameBox">
 				<p></p>
