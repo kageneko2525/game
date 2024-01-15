@@ -3,6 +3,7 @@ package model;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import dao.PointDao;
 import dao.UserDao;
 
 public class RegistrationLogic {
@@ -66,7 +67,14 @@ public class RegistrationLogic {
 						//登録処理をしてエラーメッセージなしで返す
 						if (userDao.setUser(registrationUser)) {
 							//登録成功
-							return null;
+							
+							if(detabeasSetUp(registrationUser)) {
+								
+								return null;
+							}else {
+								return "不明なエラーが発生しました。お手数ですが管理者にお問い合わせください。";
+							}
+							
 						} else {
 							//登録失敗
 							return "登録に失敗しました。時間をおいて再度お試しください";
@@ -122,4 +130,37 @@ public class RegistrationLogic {
 		// マッチがあれば無効な文字が含まれているとみなす
 		return matcher.find() && !pass.contains("/");
 	}
+	
+	
+	
+
+	/**
+	 * ユーザー登録時のポイントテーブル設定用
+	 * @param user 
+	 * @return true:成功　false:失敗
+	 * @author ねこ
+	 */
+	public boolean detabeasSetUp(User user) {
+		PointDao pointDao = new PointDao();
+		
+		if(pointDao.setUser(user)) {
+			return true;
+			
+		}
+		
+		
+		return false;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
