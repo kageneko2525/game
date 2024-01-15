@@ -36,7 +36,7 @@ public class GameStart extends HttpServlet {
 			throws ServletException, IOException {
 
 		//リダイレクト先のパスを入れる変数
-		String path = null;
+		String path ="/WEB-INF/jsp/gamemenu.jsp";
 
 		HttpSession session = request.getSession();
 		boolean keepFlg = true;
@@ -61,14 +61,17 @@ public class GameStart extends HttpServlet {
 		//エラーメッセージ初期化
 		session.setAttribute("gameStartError", "");
 		try {
-
+			System.out.println("1");
 			gameId = Integer.parseInt(request.getParameter("gameId"));
+			System.out.println("2");
 			levelId = Integer.parseInt(request.getParameter("levelId"));
-
+			System.out.println("3");
 			usePoint.setGameId(gameId);
 			usePoint.setLevelId(levelId);
 
 		} catch (Exception e) {
+			
+			System.out.println(e);
 			if (keepFlg) {
 				//存在しない難易度やIDの場合ゲームメニューへ飛ばす
 				path = "/WEB-INF/jsp/gamemenu.jsp";
@@ -102,7 +105,9 @@ public class GameStart extends HttpServlet {
 		
 		
 		
-		
+		if(keepFlg && gameStartLogic.updatePoint(user, point, usePoint)) {
+			path = "/WEB-INF/jsp/games/lookfor.jsp";
+		}
 		
 		
 		

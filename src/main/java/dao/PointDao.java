@@ -29,8 +29,8 @@ public class PointDao extends BaseDao {
 
 			this.connect();
 
-			String sql = "SELECT user_id, point , sum_point"
-					+ "FROM point"
+			String sql = "SELECT user_id, point , sum_point "
+					+ "FROM point "
 					+ "WHERE user_id = ? ";
 
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -77,8 +77,8 @@ public class PointDao extends BaseDao {
 
 			this.connect();
 
-			String sql = "SELECT user_id, sum_point"
-					+ "FROM point"
+			String sql = "SELECT user_id, sum_point "
+					+ "FROM point "
 					+ "WHERE user_id = ? ";
 
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -182,18 +182,16 @@ public class PointDao extends BaseDao {
 
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			
+			point.setPoint(karioki);
 			
 			
 			//いまログインしてる人のIDをここに入れたいけどどうやって入れればいいか分からん
 			//とりあえず今はpoint表のuserId入れてる
 			ps.setInt(1, karioki);
 			ps.setInt(2, point.getUserId());
-			ResultSet rs = ps.executeQuery();
+			int rowsUpdated = ps.executeUpdate();
 
-			if (rs.next()) {
-				int poi = rs.getInt("point");
-				point.setPoint(poi);
+			if (rowsUpdated>0) {
 				isUpdate = true;
 			}
 
@@ -206,6 +204,7 @@ public class PointDao extends BaseDao {
 				e.printStackTrace();
 			}
 		}
+		System.out.println("isupdete"+isUpdate);
 		return isUpdate;
 	}
 

@@ -13,7 +13,7 @@
 	<p>必要ポイント：１００</p>
 	<form action="GameStart" method="post">
 	<input type="hidden" name ="gameId" value="1">
-	<input type="hidden" name ="level" value="1">
+	<input type="hidden" name ="levelId" value="1">
 	<input type="submit" value="ゲームを開始">
 	</form>
 </body>
