@@ -58,15 +58,21 @@ public class GameStart extends HttpServlet {
 
 			//存在しない難易度やIDの場合ゲームメニューへ飛ばす
 			path = "/WEB-INF/jsp/gamemenu.jsp";
-			session.setAttribute("gameStartError", "ゲームが見つかりません。");
-		}
 
+			session.setAttribute("gameStartError", "ゲームが見つかりません。");
+
+			
+
+		}
+ 
 		GameStartLogic gameStartLogic = new GameStartLogic();
 
 		if (!gameStartLogic.checkGameLevel(gameId, levelId)) {
 			//存在しない難易度の場合ゲームメニューへ飛ばす
 			path = "/WEB-INF/jsp/gamemenu.jsp";
+
 			session.setAttribute("gameStartError", "存在しない難易度です。");
+
 		}
 
 		if (!gameStartLogic.checkEnoughPoint(user, gameId, levelId, point)) {
@@ -74,7 +80,6 @@ public class GameStart extends HttpServlet {
 			path = "/WEB-INF/jsp/gamemenu.jsp";
 			session.setAttribute("gameStartError", "ポイントが足りません。");
 		}
-
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}
