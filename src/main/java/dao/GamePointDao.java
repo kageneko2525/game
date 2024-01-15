@@ -8,7 +8,57 @@ import model.GamePoint;
 
 public class GamePointDao extends BaseDao {
 
-	public boolean updateGame_Max_Point(GamePoint gamepoint) {
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public boolean updateGameMaxPoint(GamePoint gamepoint) {
 		boolean isUpdate = false;
 
 		try {
@@ -43,7 +93,7 @@ public class GamePointDao extends BaseDao {
 		return isUpdate;
 	}
 
-	public boolean setGame_Max_Point(GamePoint gamepoint) {
+	public boolean setGameMaxPoint(GamePoint gamepoint) {
 		try {
 			this.connect();
 
