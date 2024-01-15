@@ -76,6 +76,14 @@ public class GameStart extends HttpServlet {
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}
