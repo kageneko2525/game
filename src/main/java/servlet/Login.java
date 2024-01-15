@@ -51,7 +51,11 @@ public class Login extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
+	
+	
+	
 	//jsp側の変数名errorMessageじゃなくてloginErrorでいいんか？
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String userName = request.getParameter("userName");
