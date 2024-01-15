@@ -15,6 +15,12 @@ import model.Point;
 import model.UsePoint;
 import model.User;
 
+
+
+//初期化どこ　
+
+
+
 @WebServlet("/GameStart")
 public class GameStart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
