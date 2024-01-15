@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="model.User" %>
-
+<%String loginError = (String)session.getAttribute("loginError");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<% System.out.print(loginError); %>
+<%if(loginError!=null){ %>
+<p style="color: red;">※<%=loginError %></p>
+<%} %>
 	<form action="Login" method="post">
 	ユーザー名<input type="text" name="userName"><br>
 	パスワード<input type="password" name="pass">
