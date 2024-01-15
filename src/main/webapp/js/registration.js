@@ -89,7 +89,10 @@
 						changeButton()
 					} else {
 						document.getElementById("error3").innerText = "";
+						if(document.getElementById("error1").innerText==""&&document.getElementById("error2").innerText==""){
+							
 						changeSubmit()
+						}
 					}
 
 				} else {
