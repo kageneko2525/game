@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	<%String gameStartError = (String)session.getAttribute("gameStartError");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +27,10 @@
 	<h2>所持ポイント: 0pt</h2>
 </header>
 <body>
+<% System.out.print(gameStartError); %>
+<%if(gameStartError!=null){ %>
+<p style="color: red;">※<%=gameStartError %></p>
+<%} %>
 	<main>
 		<div class="box">
 			<div class="gameBox">
