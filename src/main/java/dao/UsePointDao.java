@@ -54,4 +54,7 @@ public class UsePointDao extends BaseDao {
 	}
 	
 	
+
+	
+	
 }

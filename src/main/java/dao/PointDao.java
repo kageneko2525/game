@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.Point;
+import model.User;
 
 public class PointDao extends BaseDao {
 
@@ -184,5 +185,43 @@ public class PointDao extends BaseDao {
 			}
 		}
 		return isUpdate;
+	}
+	
+	
+	
+	/**
+	 * ユーザー登録時のポイントテーブル初期設定
+	 * @param user 登録したいユーザー id name hash設定済み 
+	 * @return true:登録成功 false:登録失敗
+	 * @author ねこ
+	 */
+	public boolean setUser(User user) {
+		try {
+
+			this.connect();
+		
+
+			String sql = "INSERT INTO User (user_id , game_id , point, max_point) VALUES (?, ?, '1000', '0')";
+
+			PreparedStatement ps = con.prepareStatement(sql);
+	
+
+			ps.setInt(1, user.getUserId());
+			ps.setString(2, user.getUserName());
+			
+
+			ps.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				this.disConnect();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return false;
+
 	}
 }
