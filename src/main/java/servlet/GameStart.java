@@ -47,7 +47,7 @@ public class GameStart extends HttpServlet {
 		System.out.println(keepFlg);
 		User user = (User) session.getAttribute("loginUser");
 		if (user == null) {
-			session.setAttribute("gameStartError", "ログインしてください。");
+			session.setAttribute("loginError", "ログインしてください。");
 			path = "/WEB-INF/jsp/login.jsp";
 			keepFlg = false;
 		}
