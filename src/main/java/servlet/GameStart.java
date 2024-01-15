@@ -35,14 +35,20 @@ public class GameStart extends HttpServlet {
 
 		//リダイレクト先のパスを入れる変数
 		String path = null;
+		
 		HttpSession session = request.getSession();
-
+		boolean keepFlg = true;
 		if (session == null) {
 			path = "/WEB-INF/jsp/login.jsp";
+			keepFlg =false;
 		}
-
+		System.out.println(keepFlg);
 		User user = (User) session.getAttribute("loginUser");
-
+		if(user==null) {
+			session.setAttribute("gameStartError", "ログインしてください。");
+			path = "/WEB-INF/jsp/login.jsp";
+			keepFlg =false;
+		}
 		int gameId = -1;
 		int levelId = -1;
 
@@ -63,33 +69,38 @@ public class GameStart extends HttpServlet {
 			usePoint.setLevelId(levelId);
 
 		} catch (Exception e) {
+if(keepFlg) {
+	//存在しない難易度やIDの場合ゲームメニューへ飛ばす
+	path = "/WEB-INF/jsp/gamemenu.jsp";
 
-			//存在しない難易度やIDの場合ゲームメニューへ飛ばす
-			path = "/WEB-INF/jsp/gamemenu.jsp";
+	session.setAttribute("gameStartError", "ゲームが見つかりません。");
 
-			session.setAttribute("gameStartError", "ゲームが見つかりません。");
-
+	keepFlg =false;	
+}
+			
+			
 			
 
 		}
  
 		GameStartLogic gameStartLogic = new GameStartLogic();
-
-		if (!gameStartLogic.checkGameLevel(gameId, levelId)) {
+		System.out.println(keepFlg);
+		if (keepFlg&&!gameStartLogic.checkGameLevel(gameId, levelId)) {
 			//存在しない難易度の場合ゲームメニューへ飛ばす
 			path = "/WEB-INF/jsp/gamemenu.jsp";
-
+			keepFlg =false;
 			session.setAttribute("gameStartError", "存在しない難易度です。");
 
 		}
 
-
-		if(!gameStartLogic.checkEnoughPoint(user, usePoint, point)) {
+		System.out.println(keepFlg);
+		if(keepFlg&&!gameStartLogic.checkEnoughPoint(user, usePoint, point)) {
 
 
 			//ポイントが足りない場合ゲームメニューへ飛ばす
 			path = "/WEB-INF/jsp/gamemenu.jsp";
 			session.setAttribute("gameStartError", "ポイントが足りません。");
+			keepFlg =false;
 		}
 
 		
