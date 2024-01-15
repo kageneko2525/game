@@ -8,6 +8,6 @@
 </head>
 <body>
 	<h1>ゲーム結果</h1>
-
+	
 </body>
 </html>

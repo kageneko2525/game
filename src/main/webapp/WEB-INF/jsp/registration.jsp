@@ -10,7 +10,6 @@
 <title>エセガゲームランド</title>
 </head>
 <body>
-<% System.out.print(registrationError); %>
 <%if(registrationError!=null){ %>
 <p style="color: red;">※<%=registrationError %></p>
 <%} %>
