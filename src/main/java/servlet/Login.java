@@ -1,5 +1,4 @@
 
-
 package servlet;
 
 import java.io.IOException;
@@ -17,7 +16,6 @@ import javax.servlet.http.HttpSession;
 import dao.UserDao;
 import model.User;
 
-
 /**
  * 
  * @author ねこ
@@ -26,13 +24,13 @@ import model.User;
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
 
-    public Login() {
-        super();
-    }
+	public Login() {
+		super();
+	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String forwardPath = null;
 		HttpSession session = request.getSession();
 		if (session == null) {
@@ -52,25 +50,25 @@ public class Login extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
 		dispatcher.forward(request, response);
 	}
-	
-	
+
 	//jsp側の変数名errorMessageじゃなくてloginErrorでいいんか？
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userName =request.getParameter("userName");
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String userName = request.getParameter("userName");
 		String pass = request.getParameter("pass");
-		
+
 		HttpSession session = request.getSession();
-		
+
 		//エラーメッセージ初期化
 		session.setAttribute("errorMessage", null);
-		
-		if(userName == "" || pass =="") {
+
+		if (userName == "" || pass == "") {
 			//IDかpassが入力されていないときの処理とエラーメッセージ
 			session.setAttribute("errorMessage", "IDまたはパスワードが入力されていません。");
 			response.sendRedirect("/esegaGameLand/Login");
-		}else {
+		} else {
 			//入力された時の処理
-			
+
 			//user仮置き
 			User user = new User();
 			user.setUserName(userName);
@@ -95,17 +93,16 @@ public class Login extends HttpServlet {
 				//一致するIDがあるとき
 				//ログインする
 				session.setAttribute("loginUser", user);
-				session.setMaxInactiveInterval(60*10);
+				session.setMaxInactiveInterval(60 * 10);
 				response.sendRedirect("/esegaGameLand/Index");
 			} else {
 				//しないときはエラーメッセージをつけてloginへ
 				session.setAttribute("errorMessage", "存在しないID、またはパスワードが間違っています。");
-			    response.sendRedirect("/esegaGameLand/Login");
+				response.sendRedirect("/esegaGameLand/Login");
 			}
-			
+
 		}
-		
-		
+
 	}
 
 }

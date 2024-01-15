@@ -18,6 +18,6 @@
 	パスワード<input type="password" name="pass">
 	<input type="submit"value="送信">
 	</form>
-	<a href="Index">戻る</a>　　　<a href="Registration">新規登録</a>
+	<a href="Index">戻る</a>　　<a href="Registration">新規登録</a>
 </body>
 </html>
