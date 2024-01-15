@@ -23,7 +23,7 @@ public class Lookfor extends HttpServlet {
 
 		//リダイレクト先のパスを入れる変数
 		String path = null;
-		path ="/WEB-INF/jsp/lookfor.jsp";
+		path ="/WEB-INF/jsp/games/lookfor.jsp";
 		HttpSession session = request.getSession();
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
