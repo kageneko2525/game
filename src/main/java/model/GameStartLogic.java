@@ -30,20 +30,26 @@ public class GameStartLogic {
 	 * @param point ユーザーのポイント格納用
 	 * @return true：十分なポイントがある false：十分なポイントがない
 	 */
-	public Boolean checkEnoughPoint(User user, int gameId, int levelId, Point point) {
+	public Boolean checkEnoughPoint(User user, UsePoint usePoint, Point point) {
 		//pointテーブル検索用
 		PointDao pointDao = new PointDao();
 		UsePointDao usePointDao = new UsePointDao();
 		point.setUserId(user.getUserId());
 		if (pointDao.getPoint(point)) {
+			if(usePointDao.getUsePoint(usePoint)) {
+				
+			}else {
+				//エラーだねえ
 
+				return false;
+			}
 		} else {
 			//エラーだねえ
 
 			return false;
 		}
 
-		return point.getPoint() - usePointDao.getUsePoint(gameId, levelId) >= 0;
+		return point.getPoint() - usePoint.getUsePount() >= 0;
 
 	}
 	
@@ -52,7 +58,11 @@ public class GameStartLogic {
 	
 	public void updatePoint(User user, Point usePoint) {
 		UsePointDao usePointDao = new UsePointDao();
-		int use = usePointDao.getUsePoint(, 0)
+		PointDao pointDao = new PointDao();
+		
+		
+		
+		
 	}
 	
 	
