@@ -99,6 +99,13 @@ public class GameStart extends HttpServlet {
 			keepFlg = false;
 		}
 
+		
+		
+		
+		
+		
+		
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}

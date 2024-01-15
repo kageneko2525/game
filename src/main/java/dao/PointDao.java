@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.Point;
+import model.UsePoint;
 import model.User;
 
 public class PointDao extends BaseDao {
@@ -134,6 +135,59 @@ public class PointDao extends BaseDao {
 			//いまログインしてる人のIDをここに入れたいけどどうやって入れればいいか分からん
 			//とりあえず今はpoint表のuserId入れてる
 			ps.setInt(1, point.getPoint());
+			ps.setInt(2, point.getUserId());
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				int poi = rs.getInt("point");
+				point.setPoint(poi);
+				isUpdate = true;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				this.disConnect();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return isUpdate;
+	}
+	
+	
+	
+/**
+ * 現在のポイントを更新するよ
+ * ゲーム開始時に使ってね
+ * pointはuserId point,usePointはusePointを設定しておいてね
+ * pointに使った後のポイントに更新されるよ
+ * @param point
+ * @param usePoint
+ * @return treu:成功 false;失敗
+ * @author おれ
+ */
+	public boolean updatePoint(Point point , UsePoint usePoint) {
+		boolean isUpdate = false;
+
+		try {
+			this.connect();
+
+			int karioki = point.getPoint() - usePoint.getUsePount();
+			
+			
+			String sql = "UPDATE point set point= ? "
+					+ " where user_id=?";
+
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			
+			
+			
+			//いまログインしてる人のIDをここに入れたいけどどうやって入れればいいか分からん
+			//とりあえず今はpoint表のuserId入れてる
+			ps.setInt(1, karioki);
 			ps.setInt(2, point.getUserId());
 			ResultSet rs = ps.executeQuery();
 

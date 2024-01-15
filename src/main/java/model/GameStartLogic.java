@@ -55,12 +55,19 @@ public class GameStartLogic {
 	
 	
 	
-	
-	public void updatePoint(User user, Point usePoint) {
-		UsePointDao usePointDao = new UsePointDao();
+	/**
+	 * ゲーム開始時用のポイント更新だよ
+	 * pointはuserId point,usePointはusePointを設定しておいてね
+	 * pointに使った後のポイントに更新されるよ
+	 * @param user 	ゲームする人
+	 * @param point 
+	 * @param usePoint
+	 * @return true；成功 false:失敗
+	 */
+	public boolean updatePoint(User user,Point point, UsePoint usePoint) {
 		PointDao pointDao = new PointDao();
 		
-		
+		return pointDao.updatePoint(point,usePoint);
 		
 		
 	}
