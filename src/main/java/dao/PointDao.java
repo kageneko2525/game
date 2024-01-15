@@ -8,6 +8,12 @@ import model.Point;
 import model.User;
 
 public class PointDao extends BaseDao {
+	
+	
+	
+	
+	
+	
 
 	/**
 	 * 現在ログインしているユーザーの所持ポイントを取得
@@ -64,7 +70,7 @@ public class PointDao extends BaseDao {
 	 * @return true:取得成功　false:取得失敗
 	 * @author エセガ
 	 */
-	public boolean findSum_Point(Point point) {
+	public boolean getSumPoint(Point point) {
 		boolean isSumPoint = false;
 		try {
 
@@ -108,6 +114,8 @@ public class PointDao extends BaseDao {
 
 	/**
 	 * ゲームで獲得したポイントを所持ポイントに加算
+	 * pointにUserId,pointを格納しといてね
+	 * 加算減算できるよ！
 	 * @return true:加算成功　false:加算失敗
 	 * @author エセガ
 	 */
@@ -149,8 +157,10 @@ public class PointDao extends BaseDao {
 
 	/**
 	 * 総獲得ポイントを更新
+	 * pointにuserIdとポイントがある状態でつかってね　
+	 * pointにSumPointが更新されるよ
 	 * @return true:更新成功　false:更新失敗
-	 * @author エセガ
+	 * @author エセガ　説明更新おれ
 	 */
 	public boolean updateSum_Point(Point point) {
 		boolean isUpdate = false;
@@ -187,7 +197,7 @@ public class PointDao extends BaseDao {
 		return isUpdate;
 	}
 	
-	
+	 
 	
 	/**
 	 * ユーザー登録時のポイントテーブル初期設定

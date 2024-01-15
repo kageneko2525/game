@@ -56,13 +56,15 @@ public class GameStart extends HttpServlet {
 
 			//存在しない難易度やIDの場合ゲームメニューへ飛ばす
 			path = "/WEB-INF/jsp/gamemenu.jsp";
+			
 		}
-
+ 
 		GameStartLogic gameStartLogic = new GameStartLogic();
 
 		if (!gameStartLogic.checkGameLevel(gameId, levelId)) {
 			//存在しない難易度の場合ゲームメニューへ飛ばす
 			path = "/WEB-INF/jsp/gamemenu.jsp";
+			
 		}
 
 		if(!gameStartLogic.checkEnoughPoint(user, gameId, levelId, point)) {

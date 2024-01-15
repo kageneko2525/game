@@ -23,6 +23,7 @@ public class GameStartLogic {
 
 	/**
 	 * 必要なポイントに十分なポイントを所持しているか
+	 * pointにUserIdを格納しとくよ
 	 * @param user ログインユーザー
 	 * @param gameId ゲームID
 	 * @param levelId 難易度ID
@@ -33,7 +34,7 @@ public class GameStartLogic {
 		//pointテーブル検索用
 		PointDao pointDao = new PointDao();
 		UsePointDao usePointDao = new UsePointDao();
-
+		point.setUserId(user.getUserId());
 		if (pointDao.getPoint(point)) {
 
 		} else {
@@ -45,4 +46,24 @@ public class GameStartLogic {
 		return point.getPoint() - usePointDao.getUsePoint(gameId, levelId) >= 0;
 
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
