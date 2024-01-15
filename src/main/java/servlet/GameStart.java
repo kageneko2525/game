@@ -17,7 +17,7 @@ import model.User;
 
 
 
-//初期化どこ
+//初期化どこ　
 
 
 
