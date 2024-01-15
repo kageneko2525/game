@@ -27,8 +27,8 @@
 	<h2>所持ポイント: 0pt</h2>
 </header>
 <body>
-<% System.out.print(gameStartError); %>
-<%if(gameStartError!=null){ %>
+
+<%if(gameStartError!=null&&gameStartError!=""){ %>
 <p style="color: red;">※<%=gameStartError %></p>
 <%} %>
 	<main>

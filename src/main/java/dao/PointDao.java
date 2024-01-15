@@ -174,7 +174,8 @@ public class PointDao extends BaseDao {
 		try {
 			this.connect();
 
-			int karioki = point.getPoint() - usePoint.getUsePount();
+			//仮置きです！
+			int tmp= point.getPoint() - usePoint.getUsePount();
 			
 			
 			String sql = "UPDATE point set point= ? "
@@ -182,12 +183,12 @@ public class PointDao extends BaseDao {
 
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			point.setPoint(karioki);
+			point.setPoint(tmp);
 			
 			
 			//いまログインしてる人のIDをここに入れたいけどどうやって入れればいいか分からん
 			//とりあえず今はpoint表のuserId入れてる
-			ps.setInt(1, karioki);
+			ps.setInt(1, tmp);
 			ps.setInt(2, point.getUserId());
 			int rowsUpdated = ps.executeUpdate();
 
@@ -264,14 +265,13 @@ public class PointDao extends BaseDao {
 			this.connect();
 		
 
-			String sql = "INSERT INTO User (user_id , game_id , point, max_point) VALUES (?, ?, '1000', '0')";
+			String sql = "INSERT INTO point (user_id , point, sum_point) VALUES (?, '1000', '0')";
 
 			PreparedStatement ps = con.prepareStatement(sql);
 	
 
 			ps.setInt(1, user.getUserId());
-			ps.setString(2, user.getUserName());
-			
+
 
 			ps.executeUpdate();
 			return true;
