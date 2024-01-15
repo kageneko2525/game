@@ -45,11 +45,15 @@ public class GameStart extends HttpServlet {
 
 		int gameId = -1;
 		int levelId = -1;
+
 		
 		UsePoint usePoint = new UsePoint();
 		
+
 		Point point = new Point();
-		
+
+		//エラーメッセージ初期化
+		session.setAttribute("gameStartError", "");
 		try {
 
 			gameId = Integer.parseInt(request.getParameter("gameId"));
@@ -62,7 +66,11 @@ public class GameStart extends HttpServlet {
 
 			//存在しない難易度やIDの場合ゲームメニューへ飛ばす
 			path = "/WEB-INF/jsp/gamemenu.jsp";
+
+			session.setAttribute("gameStartError", "ゲームが見つかりません。");
+
 			
+
 		}
  
 		GameStartLogic gameStartLogic = new GameStartLogic();
@@ -70,13 +78,20 @@ public class GameStart extends HttpServlet {
 		if (!gameStartLogic.checkGameLevel(gameId, levelId)) {
 			//存在しない難易度の場合ゲームメニューへ飛ばす
 			path = "/WEB-INF/jsp/gamemenu.jsp";
-			
+
+			session.setAttribute("gameStartError", "存在しない難易度です。");
+
 		}
 
+
 		if(!gameStartLogic.checkEnoughPoint(user, usePoint, point)) {
+
+
 			//ポイントが足りない場合ゲームメニューへ飛ばす
 			path = "/WEB-INF/jsp/gamemenu.jsp";
+			session.setAttribute("gameStartError", "ポイントが足りません。");
 		}
+
 		
 		
 		
@@ -89,7 +104,6 @@ public class GameStart extends HttpServlet {
 		
 
 	
-		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}
