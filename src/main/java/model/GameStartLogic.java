@@ -50,7 +50,10 @@ public class GameStartLogic {
 	
 	
 	
-	
+	public void updatePoint(User user, Point usePoint) {
+		UsePointDao usePointDao = new UsePointDao();
+		int use = usePointDao.getUsePoint(, 0)
+	}
 	
 	
 	
