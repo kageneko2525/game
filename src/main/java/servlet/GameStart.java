@@ -54,7 +54,7 @@ public class GameStart extends HttpServlet {
 
 		} catch (Exception e) {
 
-			//存在しない難易度の場合ゲームメニューへ飛ばす
+			//存在しない難易度やIDの場合ゲームメニューへ飛ばす
 			path = "/WEB-INF/jsp/gamemenu.jsp";
 		}
 
@@ -65,7 +65,14 @@ public class GameStart extends HttpServlet {
 			path = "/WEB-INF/jsp/gamemenu.jsp";
 		}
 
-		gameStartLogic.checkEnoughPoint(user, gameId, levelId, point);
+		if(!gameStartLogic.checkEnoughPoint(user, gameId, levelId, point)) {
+			//ポイントが足りない場合ゲームメニューへ飛ばす
+			path = "/WEB-INF/jsp/gamemenu.jsp";
+		}
+		
+		
+		
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
