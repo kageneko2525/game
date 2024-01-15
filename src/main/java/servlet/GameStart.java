@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import model.GameStartLogic;
 import model.Point;
+import model.UsePoint;
 import model.User;
 
 
@@ -51,6 +52,10 @@ public class GameStart extends HttpServlet {
 		int gameId = -1;
 		int levelId = -1;
 
+		
+		UsePoint usePoint = new UsePoint();
+		
+
 		Point point = new Point();
 
 		//エラーメッセージ初期化
@@ -59,6 +64,9 @@ public class GameStart extends HttpServlet {
 
 			gameId = Integer.parseInt(request.getParameter("gameId"));
 			levelId = Integer.parseInt(request.getParameter("levelId"));
+			
+			usePoint.setGameId(gameId);
+			usePoint.setLevelId(levelId);
 
 		} catch (Exception e) {
 
@@ -81,11 +89,27 @@ public class GameStart extends HttpServlet {
 
 		}
 
-		if (!gameStartLogic.checkEnoughPoint(user, gameId, levelId, point)) {
+
+		if(!gameStartLogic.checkEnoughPoint(user, usePoint, point)) {
+
+
 			//ポイントが足りない場合ゲームメニューへ飛ばす
 			path = "/WEB-INF/jsp/gamemenu.jsp";
 			session.setAttribute("gameStartError", "ポイントが足りません。");
 		}
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+	
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}

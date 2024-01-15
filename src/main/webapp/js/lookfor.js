@@ -22,12 +22,12 @@ let index
 let num
 
 let images = [
-	"./images/lookfor/mayupen.png",
-	"./images/lookfor/nakinoko.png",
-	"./images/lookfor/nekotan.png",
-	"./images/lookfor/obake.png",
-	"./images/lookfor/okoribana.png",
-	"./images/lookfor/rariboshi.png"
+	"./images/games/lookfor/mayupen.png",
+	"./images/games/lookfor/nakinoko.png",
+	"./images/games/lookfor/nekotan.png",
+	"./images/games/lookfor/obake.png",
+	"./images/games/lookfor/okoribana.png",
+	"./images/games/lookfor/rariboshi.png"
 ]
 
 let choiceImage = []
