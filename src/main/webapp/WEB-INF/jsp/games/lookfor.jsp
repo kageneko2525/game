@@ -15,7 +15,7 @@
 		<button id="button__stratButton" onclick="startTimer()">ゲームを開始</button>
 		<form style="visibility: hidden;" id="form" action="Result"
 			method="post">
-			<input id="point" type="hidden" value="" name="point"> <input
+			<input id="point" type="hidden" value="" name="score"> <input
 				type="submit" value="結果を送信" id="endButton">
 		</form>
 		<div id="questionBox">
