@@ -54,7 +54,6 @@ public class Login extends HttpServlet {
 	
 	
 	
-	//jsp側の変数名errorMessageじゃなくてloginErrorでいいんか？
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
