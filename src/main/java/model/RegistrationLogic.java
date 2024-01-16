@@ -16,6 +16,7 @@ public class RegistrationLogic {
 	 * @param samePass 再入力したパスワード
 	 * @param registrationUser 登録したUserをいれる用のUser
 	 * @return null:登録成功 それ以外:登録失敗。失敗内容に応じたエラーメッセージ
+	 * @author ねこ
 	 */
 	public String chackRegistration(String userName, String pass, String samePass, User registrationUser) {
 		hashLogic hashLogic = new hashLogic();
