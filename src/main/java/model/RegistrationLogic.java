@@ -56,37 +56,42 @@ public class RegistrationLogic {
 				//もしハッシュと再入力のハッシュが同じか判定
 				if (hash.equals(sameHash)) {
 					//一緒なら
-
 					UserDao userDao = new UserDao();
 
 					//すでに同じ名前のユーザーかいるか検索し判定
 					if (userDao.findByName(userName)) {
+						
 						//いたらエラーメッセージを返す
 						return "すでに同じユーザー名の人がいます";
 					} else {
+						
 						//いないなら
 						//登録処理をしてエラーメッセージなしで返す
 						if (userDao.setUser(registrationUser)) {
-							//登録成功
 							
+							//登録成功
 							if(detabeasSetUp(registrationUser)) {
 								
 								return null;
 							}else {
+								
 								return "不明なエラーが発生しました。お手数ですが管理者にお問い合わせください。";
 							}
 							
 						} else {
+							
 							//登録失敗
 							return "登録に失敗しました。時間をおいて再度お試しください";
 						}
 					}
 
 				} else {
+					
 					//一緒じゃないならエラーメッセージを返す
 					return "パスワードが一致しません";
 				}
 			} else {
+				
 				//正しい名前とパスワードじゃないなら
 				//エラーメッセージを返す
 				return "使用できない文字が含まれています";
