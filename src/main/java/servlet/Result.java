@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Point;
+
 
 @WebServlet("/Result")
 public class Result extends HttpServlet {
@@ -29,6 +31,33 @@ public class Result extends HttpServlet {
 			forwardPath = "/WEB-INF/jsp/index.jsp";
 
 		} else {
+			
+			
+			Object loginCheck = session.getAttribute("loginUser");
+			if (loginCheck == null) {
+				forwardPath = "/WEB-INF/jsp/result.jsp";
+
+			} else {
+				forwardPath = "/WEB-INF/jsp/index.jsp";
+			}
+		}
+
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+		dispatcher.forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String forwardPath = null;
+		HttpSession session = request.getSession();
+		if (session == null) {
+			session = request.getSession(true);
+			forwardPath = "/WEB-INF/jsp/index.jsp";
+
+		} else {
+			
+			
 			Object loginCheck = session.getAttribute("loginUser");
 			if (loginCheck == null) {
 				forwardPath = "/WEB-INF/jsp/result.jsp";
@@ -38,12 +67,10 @@ public class Result extends HttpServlet {
 			}
 		}
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
-		dispatcher.forward(request, response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		
+		String score = request.getParameter("score");
+		Point point = (Point)session.getAttribute("point");
+		
 	}
 
 }
