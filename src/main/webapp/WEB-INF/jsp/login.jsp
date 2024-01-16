@@ -9,7 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% System.out.print(loginError); %>
 <%if(loginError!=null){ %>
 <p style="color: red;">※<%=loginError %></p>
 <%} %>

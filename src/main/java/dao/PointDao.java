@@ -213,7 +213,6 @@ public class PointDao extends BaseDao {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("isupdete"+isUpdate);
 		return isUpdate;
 	}
 	
@@ -240,7 +239,7 @@ public class PointDao extends BaseDao {
 				point.setSumPoint(point.getSumPoint()+getScore);
 				
 				
-				String sql = "UPDATE point set point= ? , sum_point "
+				String sql = "UPDATE point set point= ? , sum_point = ? "
 						+ " where user_id=?";
 
 				PreparedStatement ps = con.prepareStatement(sql);
@@ -265,7 +264,6 @@ public class PointDao extends BaseDao {
 					e.printStackTrace();
 				}
 			}
-			System.out.println("isupdete"+isUpdate);
 			return isUpdate;
 		}
 
