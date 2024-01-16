@@ -73,7 +73,10 @@ public class GameStartLogic {
 	}
 	
 	
-	
+	public void gameStartProcess() {
+		
+		
+	}
 	
 	
 }
