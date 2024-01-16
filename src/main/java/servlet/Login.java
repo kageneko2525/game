@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.PointDao;
 import dao.UserDao;
+import model.Point;
 import model.User;
 
 /**
@@ -95,7 +97,12 @@ public class Login extends HttpServlet {
 			if (isLogin) {
 				//一致するIDがあるとき
 				//ログインする
+				Point point = new Point();
+				PointDao pointDao = new PointDao();
+				pointDao.getPoint(point);
 				session.setAttribute("loginUser", user);
+				session.setAttribute("point", point);
+				
 				session.setMaxInactiveInterval(60 * 10);
 				response.sendRedirect("/esegaGameLand/Index");
 			} else {

@@ -102,14 +102,14 @@ public class GameStart extends HttpServlet {
 			keepFlg = false;
 		}
 
-		
+
 		
 		
 		if(keepFlg && gameStartLogic.updatePoint(user, point, usePoint)) {
 			path = "/WEB-INF/jsp/games/lookfor.jsp";
 		}
 		
-		
+		session.setAttribute("point", point);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
