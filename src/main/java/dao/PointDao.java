@@ -64,6 +64,14 @@ public class PointDao extends BaseDao {
 		}
 		return isPoint;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 
 	/**
 	 * 
@@ -208,6 +216,58 @@ public class PointDao extends BaseDao {
 		System.out.println("isupdete"+isUpdate);
 		return isUpdate;
 	}
+	
+	
+	
+	/**
+	 * ポイント更新用
+	 * ゲーム終了時に使うよう
+	 * pointの値を獲得した後の値に
+	 * sumpointを獲得した値を足した値にしてるよ
+	 * ポイントのフィールドは埋めといてね
+	 * @param point 
+	 * @param getScore 加算ポイント！
+	 * @return true:成功 false:失敗
+	 */
+		public boolean updatePoint(Point point , int getScore) {
+			boolean isUpdate = false;
+
+			try {
+				this.connect();
+
+
+				point.setPoint(point.getPoint()+getScore);
+				point.setSumPoint(point.getSumPoint()+getScore);
+				
+				
+				String sql = "UPDATE point set point= ? , sum_point "
+						+ " where user_id=?";
+
+				PreparedStatement ps = con.prepareStatement(sql);
+
+				
+
+				ps.setInt(1, point.getPoint());
+				ps.setInt(2, point.getSumPoint());
+				ps.setInt(3, point.getUserId());
+				int rowsUpdated = ps.executeUpdate();
+
+				if (rowsUpdated>0) {
+					isUpdate = true;
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					this.disConnect();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			System.out.println("isupdete"+isUpdate);
+			return isUpdate;
+		}
 
 	/**
 	 * 総獲得ポイントを更新
