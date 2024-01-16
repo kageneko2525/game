@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+	    <%@ page import ="model.Point" %>
+	<%Point point = (Point)session.getAttribute("point")%>
 	<%String gameStartError = (String)session.getAttribute("gameStartError");%>
 <!DOCTYPE html>
 <html>
@@ -24,7 +25,14 @@
 </head>
 <header>
 	<h1>ミニゲーム一覧</h1>
-	<h2>所持ポイント: 0pt</h2>
+	<h2>所持ポイント: 
+<%if(point.getPoint()!=null ){ %>
+	<%=point.getPoint() %>
+<%}else{ %>
+0
+<%} %>
+pt
+</h2>
 </header>
 <body>
 
