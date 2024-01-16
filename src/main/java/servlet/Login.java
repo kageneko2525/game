@@ -99,8 +99,10 @@ public class Login extends HttpServlet {
 				//ログインする
 				Point point = new Point();
 				PointDao pointDao = new PointDao();
+				point.setUserId(user.getUserId());
 				pointDao.getPoint(point);
 				session.setAttribute("loginUser", user);
+
 				session.setAttribute("point", point);
 				
 				session.setMaxInactiveInterval(60 * 10);
