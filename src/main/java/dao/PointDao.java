@@ -35,8 +35,7 @@ public class PointDao extends BaseDao {
 
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			//いまログインしてる人のIDをここに入れたいけどどうやって入れればいいか分からん
-			//とりあえず今はpoint表のuserId入れてる
+
 			ps.setInt(1, point.getUserId());
 			ResultSet rs = ps.executeQuery();
 
