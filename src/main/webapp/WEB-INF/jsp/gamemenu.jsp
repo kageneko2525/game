@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="./css/menu.css">
 <link rel="stylesheet" href="./css/footer.css">
 <link rel="stylesheet" href="./css/gamemenu.css">
+<link rel="stylesheet" href="./css/base.css">
 
 <meta charset="UTF-8">
 <title>エセガゲームランド</title>

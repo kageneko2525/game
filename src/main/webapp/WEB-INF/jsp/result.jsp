@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <% Int getPoint = (Int)request.getAttribute("getPoint"); %>
+    <% Integer getPoint = (Integer)request.getAttribute("getPoint"); %>
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" href="./css/header.css">
 <link rel="stylesheet" href="./css/menu.css">
 <link rel="stylesheet" href="./css/footer.css">
-<link rel="stylesheet" href="./css/logo.css">
+<link rel="stylesheet" href="./css/base.css">
+
 <meta charset="UTF-8">
 <title>エセガゲームランド</title>
 </head>
@@ -17,7 +18,7 @@
 </div>
 <h1>結果発表</h1>
 <p><%=getPoint %>ポイント獲得しました！！！</p>
-<a href="/Index">ゲーム選択へ</a>
+<a href="Gamemenu">ゲーム選択へ</a>
 
 </body>
 <footer>

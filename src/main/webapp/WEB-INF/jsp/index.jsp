@@ -7,11 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>エセガゲームランド</title>
-<link rel="stylesheet" href="./css/header.css">
+
 <link rel="stylesheet" href="./css/menu.css">
-<link rel="stylesheet" href="./css/index.css">
 <link rel="stylesheet" href="./css/footer.css">
-<link rel="stylesheet" href="./css/logo.css">
+<link rel="stylesheet" href="./css/base.css">
+<link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
 <div id ="header">

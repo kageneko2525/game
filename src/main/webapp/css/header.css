@@ -8,8 +8,9 @@
 	margin: auto;
 	position: relative;
 	background-image: url('../images/header_sky.png');
-	height: 640px;
-}
+	height: 320px;
+	background-size:auto 320px;
+	}
 
 #header__title {
 	position: absolute;
@@ -23,7 +24,7 @@
 
 #header__image {
 	position: absolute;
-	height: 640px;
+	height: 320px;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
