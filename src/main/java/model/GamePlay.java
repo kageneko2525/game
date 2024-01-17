@@ -2,17 +2,21 @@ package model;
 
 public class GamePlay {
 	private int playId;
+	private int userId;
 	private int gameId;
 	private int start;
 	private int end;
-	
-	
-	
 	public int getPlayId() {
 		return playId;
 	}
 	public void setPlayId(int playId) {
 		this.playId = playId;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	public int getGameId() {
 		return gameId;
@@ -33,6 +37,8 @@ public class GamePlay {
 		this.end = end;
 	}
 	
+	
+
 	
 	
 }
