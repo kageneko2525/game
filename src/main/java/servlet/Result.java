@@ -23,43 +23,40 @@ public class Result extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String forwardPath = null;
-		HttpSession session = request.getSession();
-		if (session == null) {
-			session = request.getSession(true);
-			forwardPath = "/WEB-INF/jsp/index.jsp";
+		//パスを入れる変数宣言
+		//ポスト前提なのでゲットは無条件でindexへ
+		String path = "Index";
 
-		} else {
 
-			Object loginCheck = session.getAttribute("loginUser");
-			if (loginCheck == null) {
-				forwardPath = "/WEB-INF/jsp/result.jsp";
 
-			} else {
-				forwardPath = "/WEB-INF/jsp/index.jsp";
-			}
-		}
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
-		dispatcher.forward(request, response);
+		//　ページ遷移
+		response.sendRedirect(path);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		//フォワード先のパスを入れる変数宣言
 		String forwardPath = "/WEB-INF/jsp/index.jsp";
+		
+		//セッションの獲得
 		HttpSession session = request.getSession();
 		if (session == null) {
+			
+			//セッションがなかったらセッションを開始し、indexへ
 			session = request.getSession(true);
 			forwardPath = "/WEB-INF/jsp/index.jsp";
+		
 		} else {
 
+			//セッションがあったらログインしているかのチェック
 			Object loginCheck = session.getAttribute("loginUser");
 			if (loginCheck == null) {
 				forwardPath = "/WEB-INF/jsp/index.jsp";
-				
+
 			} else {
-				forwardPath = "/WEB-INF/jsp/result.jsp";
 				
+				forwardPath = "/WEB-INF/jsp/result.jsp";
+
 			}
 
 			String scoreSt = request.getParameter("score");
