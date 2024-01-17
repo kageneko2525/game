@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <% Int getPoint = (Int)request.getAttribute("getPoint") %>
+    <% Int getPoint = (Int)request.getAttribute("getPoint"); %>
 <!DOCTYPE html>
 <html>
 <head>
