@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.PointDao;
+import model.Point;
 import model.RegistrationLogic;
 import model.User;
 
@@ -50,6 +52,12 @@ public class Registration extends HttpServlet {
 		String samePass = request.getParameter("samePass");
 
 		User registrationUser = new User();
+		Point point = new Point();
+		PointDao pointDao = new PointDao();
+		
+		
+		pointDao.getPoint(point);
+		
 		
 		//エラーメッセージ初期化
 		session.setAttribute("registrationErrorr", "");
@@ -62,7 +70,8 @@ public class Registration extends HttpServlet {
 		if(registrarionError == null ||registrarionError.isEmpty()) {
 			//エラーメッセージがないなら登録成功
 			//indexへ
-			
+			pointDao.getPoint(point);
+			session.setAttribute("point", point);
 			session.setAttribute("loginUser", registrationUser);
 			path ="Index";
 			session.setMaxInactiveInterval(60*10);
