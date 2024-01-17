@@ -83,7 +83,8 @@ public class Result extends HttpServlet {
 			request.setAttribute("getPoint", score);
 
 		}
-		response.sendRedirect(forwardPath);
+		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+		dispatcher.forward(request, response);
 	}
 
 }
