@@ -16,10 +16,9 @@
 <body>
 <div id ="header">
 <img id="header__image" alt="headerimage" src="./images/header.png">
+<h1 id="header__title">エセガゲームランド</h1>
 </div>
-<header>
-<h1>エセガゲームランド</h1>
-</header>
+
 
 <%if(loginUser==null){ %>
 <%}else { %>

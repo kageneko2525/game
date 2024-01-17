@@ -6,25 +6,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-.box {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-}
+<link rel="stylesheet" href="./css/header.css">
+<link rel="stylesheet" href="./css/menu.css">
+<link rel="stylesheet" href="./css/footer.css">
+<link rel="stylesheet" href="./css/gamemenu.css">
 
-.gameBox {
-	text-align: center;
-	border: 1px black solid;
-}
-</style>
 <meta charset="UTF-8">
 <title>エセガゲームランド</title>
-<link rel="stylesheet" href="./css/gamemenu.css">
-<link rel="stylesheet" href="./css/footer.css">
 </head>
-<header>
-	<h1>ミニゲーム一覧</h1>
+
+
+</header>
+<body>
+	<div id="header">
+		<img id="header__image" alt="headerimage" src="./images/header.png">
+		<h1 id="header__title">エセガゲームランド</h1>
+	</div>
+		<h1>ミニゲーム一覧</h1>
 	<h2>所持ポイント: 
 
 <%if(point != null ){ %>
@@ -34,9 +32,6 @@
 <%} %>
 pt
 </h2>
-</header>
-<body>
-
 <%if(gameStartError!=null&&gameStartError!=""){ %>
 <p style="color: red;">※<%=gameStartError %></p>
 <%} %>

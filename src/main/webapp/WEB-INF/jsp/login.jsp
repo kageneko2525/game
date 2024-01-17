@@ -8,13 +8,13 @@
 <link rel="stylesheet" href="./css/header.css">
 <link rel="stylesheet" href="./css/menu.css">
 <link rel="stylesheet" href="./css/footer.css">
-<link rel="stylesheet" href="./css/logo.css">
 <meta charset="UTF-8">
 <title>エセガゲームランド</title>
 </head>
 <body>
 <div id ="header">
 <img id="header__image" alt="headerimage" src="./images/header.png">
+<h1 id="header__title">エセガゲームランド</h1>
 </div>
 <%if(loginError!=null){ %>
 <p style="color: red;">※<%=loginError %></p>
