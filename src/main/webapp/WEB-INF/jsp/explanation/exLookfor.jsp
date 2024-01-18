@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="./js/game.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
