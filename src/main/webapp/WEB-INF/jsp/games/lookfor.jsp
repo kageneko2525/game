@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="./js/game.js"></script>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/lookfor.css">
 <title>あいつをさがせ！</title>
