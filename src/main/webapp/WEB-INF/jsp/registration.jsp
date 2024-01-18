@@ -33,6 +33,7 @@ String registrationError = (String) session.getAttribute("registrationError");
 
 		ユーザー名 <input type="text" id="form__inputText1" name="registrationName"><br>
 		<div id="error1" style="color: red;"></div>
+		メールアドレス<input type="email" name="mail"><br>
 		パスワード<input type="password" id="form__inputText2" name="pass"><br>
 		<div id="error2" style="color: red;"></div>
 		パスワード再入力<input type="password" id="form__inputText3" name="samePass">

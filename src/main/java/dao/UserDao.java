@@ -69,7 +69,7 @@ public class UserDao extends BaseDao {
 	}
 
 	/**
-	 * 引数と一致するユーザーが存在するか
+	 * 引数と一致する名前のユーザーが存在するか
 	 * @param userName 調べたい名前
 	 * @return true;存在する false:存在しない
 	 * @author ねこ
@@ -115,6 +115,55 @@ public class UserDao extends BaseDao {
 
 		return isExistence;
 	}
+	
+	
+	/**
+	 * 引数と一致する名前のユーザーが存在するか
+	 * @param userName 調べたい名前
+	 * @return true;存在する false:存在しない
+	 * @author ねこ
+	 */
+	public boolean findByMail(String mail) {
+		//Existence:存在
+		boolean isExistence = false;
+
+		try {
+
+			this.connect();
+
+			String sql = "SELECT user_id, user_name, hash "
+					+ "FROM user "
+					+ "WHERE mail = ? ";
+
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setString(1, mail);
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				isExistence = true;
+
+			}
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			try {
+
+				this.disConnect();
+
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+
+			}
+		}
+
+		return isExistence;
+	}
 
 	/**
 	 * すべてのユーザー取得し、アレイリストに入れてもどす
@@ -129,7 +178,7 @@ public class UserDao extends BaseDao {
 
 			this.connect();
 
-			String sql = "SELECT user_id, user_name, hash "
+			String sql = "SELECT user_id, mail, user_name, hash, exist_flg, ban_flg "
 					+ "FROM user ";
 
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -139,8 +188,11 @@ public class UserDao extends BaseDao {
 			while (rs.next()) {
 				User user = new User();
 				user.setUserId(rs.getInt("user_id"));
+				user.setMail(rs.getString("mail"));
 				user.setUserName(rs.getString("user_name"));
-				user.setHash("hash");
+				user.setHash(rs.getString("hash"));
+				user.setIsExsit(rs.getInt("exist_flg"));
+				user.setIsBan(rs.getInt("ban_flg"));
 				userList.add(user);
 			}
 			return userList;
@@ -179,7 +231,8 @@ public class UserDao extends BaseDao {
 			this.connect();
 
 			String sql = "SELECT user_id, user_name, hash "
-					+ "FROM user WHERE exist_flg = 1";
+					+ "FROM user WHERE exist_flg = 1 "
+					+ " or ban_flg = 1";
 
 			PreparedStatement ps = con.prepareStatement(sql);
 
@@ -189,7 +242,7 @@ public class UserDao extends BaseDao {
 				User user = new User();
 				user.setUserId(rs.getInt("user_id"));
 				user.setUserName(rs.getString("user_name"));
-				user.setHash("hash");
+				user.setHash(rs.getString("hash"));
 				userList.add(user);
 			}
 			return userList;
@@ -225,14 +278,20 @@ public class UserDao extends BaseDao {
 			this.connect();
 			UserDao userDao = new UserDao();
 
-			String sql = "INSERT INTO User (user_id , user_name , hash, exist_flg ) VALUES (?, ?, ?, '1')";
+			String sql = "INSERT INTO User (user_id ,mail , user_name , hash, exist_flg ) VALUES (?, ?, ?, ?, '1')";
 
 			PreparedStatement ps = con.prepareStatement(sql);
-			int id = userDao.findAllUser().size() + 1;
+			
+			int id =1;
+			if(userDao.findAllUser()!=null) {
+				id = userDao.findAllUser().size() + 1;
+				
+			}
 
 			ps.setString(1, Integer.toString(id));
-			ps.setString(2, user.getUserName());
-			ps.setString(3, user.getHash());
+			ps.setString(2, user.getMail());
+			ps.setString(3, user.getUserName());
+			ps.setString(4, user.getHash());
 
 			ps.executeUpdate();
 			user.setUserId(id);

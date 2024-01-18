@@ -10,7 +10,7 @@ public class RegistrationLogic {
 
 	/**
 	 * 登録可能かチェックします
-	 * もらったUserにID, NAME , HASHをセットします
+	 * もらったUserにID,mail, NAME , HASHをセットします
 	 * @param userName 登録したい名前
 	 * @param pass 登録したいパスワード
 	 * @param samePass 再入力したパスワード
@@ -18,7 +18,7 @@ public class RegistrationLogic {
 	 * @return null:登録成功 それ以外:登録失敗。失敗内容に応じたエラーメッセージ
 	 * @author ねこ
 	 */
-	public String chackRegistration(String userName, String pass, String samePass, User registrationUser) {
+	public String chackRegistration(String userName, String mail, String pass, String samePass, User registrationUser) {
 		hashLogic hashLogic = new hashLogic();
 
 		String hash = "";
@@ -30,10 +30,11 @@ public class RegistrationLogic {
 		//登録したいユーザー
 
 		registrationUser.setUserName(userName);
+		registrationUser.setMail(mail);
 		registrationUser.setHash(hash);
 
 		//パスワードの中身がなかったり空白だったりか判断
-		if (pass == null || samePass == null || pass.isEmpty() || samePass.isEmpty()) {
+		if (chackBlank(userName) || chackBlank(mail) || chackBlank(pass) || chackBlank(samePass)) {
 			//そうだったらエラーメッセージを返す
 
 			return "入力されていない項目があります";
@@ -45,12 +46,14 @@ public class RegistrationLogic {
 			if (userName.length() > 16) {
 				//長すぎたらエラーメッセージ
 				return "ユーザー名は16文字以下までです";
-			}
-			if (pass.length() < 8) {
+			} else if (pass.length() < 8) {
 				return "パスワードが短すぎます";
-			}
-			//正しい名前とパスワードか判定
-			if (checkCorrectName(userName) && checkCorrectPass(pass)) {
+
+			} else if (mail.length() > 100) {
+				return "メールアドレスが長すぎます";
+
+				//正しい名前とパスワードか判定
+			} else if (checkCorrectName(userName) && checkCorrectPass(pass)) {
 				//正しかったら
 
 				//もしハッシュと再入力のハッシュが同じか判定
@@ -58,40 +61,40 @@ public class RegistrationLogic {
 					//一緒なら
 					UserDao userDao = new UserDao();
 
-					//すでに同じ名前のユーザーかいるか検索し判定
-					if (userDao.findByName(userName)) {
-						
+					//すでに同じメールアドレスのユーザーかいるか検索し判定
+					if (userDao.findByMail(mail)) {
+
 						//いたらエラーメッセージを返す
-						return "すでに同じユーザー名の人がいます";
+						return "すでに登録されているメールアドレスです";
 					} else {
-						
+
 						//いないなら
 						//登録処理をしてエラーメッセージなしで返す
 						if (userDao.setUser(registrationUser)) {
-							
+
 							//登録成功
-							if(detabeasSetUp(registrationUser)) {
-								
+							if (detabeasSetUp(registrationUser)) {
+
 								return null;
-							}else {
-								
+							} else {
+
 								return "不明なエラーが発生しました。お手数ですが管理者にお問い合わせください。";
 							}
-							
+
 						} else {
-							
+
 							//登録失敗
 							return "登録に失敗しました。時間をおいて再度お試しください";
 						}
 					}
 
 				} else {
-					
+
 					//一緒じゃないならエラーメッセージを返す
 					return "パスワードが一致しません";
 				}
 			} else {
-				
+
 				//正しい名前とパスワードじゃないなら
 				//エラーメッセージを返す
 				return "使用できない文字が含まれています";
@@ -126,7 +129,7 @@ public class RegistrationLogic {
 	 * @author ねこ
 	 */
 	private static boolean checkCorrectPass(String pass) {
-		
+
 		// 正規表現パターン：英字（大文字と小文字）および指定の記号以外の文字が含まれている場合にfalse
 		String pattern = "[a-zA-Z0-9~`!@#$%^&*()_+=]";
 
@@ -136,9 +139,6 @@ public class RegistrationLogic {
 		// マッチがあれば無効な文字が含まれているとみなす
 		return matcher.find() && !pass.contains("/");
 	}
-	
-	
-	
 
 	/**
 	 * ユーザー登録時のポイントテーブル設定用
@@ -148,25 +148,25 @@ public class RegistrationLogic {
 	 */
 	public boolean detabeasSetUp(User user) {
 		PointDao pointDao = new PointDao();
-		
-		if(pointDao.setUser(user)) {
+
+		if (pointDao.setUser(user)) {
 			return true;
-			
+
 		}
-		
-		
+
 		return false;
-		
+
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	/**
+	 * 中身がないかのチェック用
+	 * @param st
+	 * @return
+	 */
+	public boolean chackBlank(String st) {
+
+		return st == null || st.isEmpty();
+
+	}
+
 }

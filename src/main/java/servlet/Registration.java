@@ -48,6 +48,7 @@ public class Registration extends HttpServlet {
 
 		
 		String registrartionName = request.getParameter("registrationName");
+		String mail = request.getParameter("mail");
 		String pass = request.getParameter("pass");
 		String samePass = request.getParameter("samePass");
 
@@ -65,7 +66,7 @@ public class Registration extends HttpServlet {
 
 		RegistrationLogic registrationLogic = new RegistrationLogic();
 
-		String registrarionError = registrationLogic.chackRegistration(registrartionName, pass, samePass ,registrationUser);
+		String registrarionError = registrationLogic.chackRegistration(registrartionName, mail,pass, samePass ,registrationUser);
 		
 		if(registrarionError == null ||registrarionError.isEmpty()) {
 			//エラーメッセージがないなら登録成功
