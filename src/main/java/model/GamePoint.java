@@ -4,6 +4,15 @@ public class GamePoint {
 	private int userId;
 	private int gameId;
 	private int maxGamePoint;
+	private String userName;
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
 	public int getUserId() {
 		return userId;
