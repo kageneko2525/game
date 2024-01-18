@@ -45,9 +45,12 @@ public class Ranking extends HttpServlet {
 			ArrayList<GamePoint> gamePointList = gamePointDao.getSelectGamePoint(gameId);
 			
 			String jsonData = convertListToJsonArray(gamePointList);
+			response.setContentType("application/json");
+			response.getWriter().write(jsonData);
+			
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println("aaa"+e);
 		}
 		
 
@@ -57,8 +60,8 @@ public class Ranking extends HttpServlet {
     private String convertListToJsonArray(ArrayList<GamePoint> list) {
         StringBuilder jsonArray = new StringBuilder("[");
         for (GamePoint gamePoint : list) {
-            jsonArray.append("{ \"userName\": \"").append(gamePoint.getUserId()).append("\", ")
-                    .append("\"point\": \"").append(gamePoint.getUserName()).append(" }, ");
+            jsonArray.append("{ \"userName\": \"").append(gamePoint.getUserName()).append("\", ")
+                    .append("\"point\": \"").append(gamePoint.getMaxGamePoint()).append("\" }, ");
         }
         if (list.size() > 0) {
             jsonArray.delete(jsonArray.length() - 2, jsonArray.length());

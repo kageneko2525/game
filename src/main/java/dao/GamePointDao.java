@@ -134,13 +134,13 @@ public class GamePointDao extends BaseDao {
 
 			this.connect();
 
-			String sql = "SELECT u.user_name, gp.max_game_point\r\n"
-					+ "	FROM game_point gp , user u , game g \r\n"
-					+ "		WHERE gp.user_id = u.user_id \r\n"
-					+ "			AND g.game_id = gp.game_id\r\n"
-					+ "			AND g.game_id = 1\r\n"
-					+ "		ORDER BY max_game_point DESC \r\n"
-					+ "		LIMIT 10";
+			String sql = "SELECT u.user_name, gp.max_game_point "
+					+ "	FROM game_point gp , user u , game g  "
+					+ "		WHERE gp.user_id = u.user_id  "
+					+ "			AND g.game_id = gp.game_id "
+					+ "			AND g.game_id = ? "
+					+ "		ORDER BY max_game_point DESC  "
+					+ "		LIMIT 10 ";
 
 			PreparedStatement ps = con.prepareStatement(sql);
 

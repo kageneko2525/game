@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.io.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,16 +17,24 @@
 <title>エセガゲームランド</title>
 </head>
 <body>
-<div id ="header">
-<img id="header__image" alt="headerimage" src="./images/header.png">
-<h1 id="header__title">エセガゲームランド</h1>
-</div>
+	<div id="header">
+		<img id="header__image" alt="headerimage" src="./images/header.png">
+		<h1 id="header__title">エセガゲームランド</h1>
+	</div>
+
+	<button id="gameId" onclick="fetchUserData('0')">0</button>
+	<button id="gameId" onclick="fetchUserData('1')">1</button>
 
 
+
+	<div id="userDataContainer">
+		<!-- ユーザーデータを表示するためのコンテナ -->
+	</div>
+<script src="./js/ranking.js"></script>
 </body>
 <footer>
-<div id ="footer__back--white">
-<a href="Index">TOPへ</a>
-</div>
+	<div id="footer__back--white">
+		<a href="Index">TOPへ</a>
+	</div>
 </footer>
 </html>
