@@ -50,34 +50,72 @@ public class Result extends HttpServlet {
 
 			//セッションがあったらログインしているかのチェック
 			Object loginCheck = session.getAttribute("loginUser");
+			
 			if (loginCheck == null) {
+			
+				//ログインしてなかったらIndexへ
 				forwardPath = "/WEB-INF/jsp/index.jsp";
 
 			} else {
 				
+				//していたらリザルトへ
 				forwardPath = "/WEB-INF/jsp/result.jsp";
 
 			}
 
+			//送られてきた獲得ポイント用
 			String scoreSt = request.getParameter("score");
 
+			//数字に直して入れるよう
 			int score = 0;
 
+			
+			
 			try {
+				
+				//トライキャッチを使って数字に変換できるかチェック
 				score = Integer.parseInt(scoreSt) * 10;
+				
+				//現在ポイントをセッションスコープから取得
+				Point point = (Point) session.getAttribute("point");
+
+				//ポイントDAO作成
+				PointDao pointDao = new PointDao();
+				
+				//獲得ポイントを反映させる
+				pointDao.updatePoint(point, score);
+
+				//繁栄後のポイントをセッションスコープに保存
+				session.setAttribute("point", point);
+
+				//リザルトに表示用の獲得ポイントをリクエストスコープに保全
+				//一度使うだけなのでリクエストスコープ
+				request.setAttribute("getPoint", score);
+				
+				
+				
+				
+				
+				//ここにゲームの最大ポイントを更新するプログラムを記述
+				
+				//具体的な手順
+				//DAO　Logicの作成
+				//DAOを使ってそもそも初プレイの場合はデータをインサート
+				//二回目以降の場合はデータを比較して大きかったら更新
+				//初プレイかどうかはDAOでデータあるかどうか調べる
+				//データがない場合はNULLで返すなどをしてロジック側でわかるように
+				//User情報はセッションスコープにあるので引っ張ってきてください
+				
+				
+				
+				
+				
 			} catch (Exception e) {
 
-				//不正な値きたこれ
+				//キャッチされたら不正な値なので後で垢BANつくりたい
 
 			}
-			Point point = (Point) session.getAttribute("point");
 
-			PointDao pointDao = new PointDao();
-			pointDao.updatePoint(point, score);
-
-			session.setAttribute("point", point);
-
-			request.setAttribute("getPoint", score);
 
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
