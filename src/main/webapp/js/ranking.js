@@ -11,6 +11,8 @@ function fetchUserData(gameId) {
 			// ランキングデータを表示するテーブル
 			var rankingTable = $('#userDataContainer');
 
+			// 既存のデータをクリア（1行目以外を削除）
+			rankingTable.find('tr:gt(0)').remove();
 
 
 			// 各ユーザーデータに対してHTML要素を生成して追加

@@ -34,6 +34,9 @@
 			<td>ユーザー名</td>
 			<td>ポイント</td>
 		</tr>
+		<tr >
+			<td colspan="3">ボタンを押してランキングを表示</td>
+		</tr>
 	</table>
 	<script src="./js/ranking.js"></script>
 </body>
