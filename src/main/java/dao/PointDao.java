@@ -226,6 +226,7 @@ public class PointDao extends BaseDao {
 	 * @param point 
 	 * @param getScore 加算ポイント！
 	 * @return true:成功 false:失敗
+	 * @author おれ
 	 */
 		public boolean updatePoint(Point point , int getScore) {
 			boolean isUpdate = false;
@@ -279,7 +280,7 @@ public class PointDao extends BaseDao {
 		try {
 			this.connect();
 
-			String sql = "UPDATE point set sum_point=sum_point+?"
+			String sql = "UPDATE point set sum_point=sum_point+? "
 					+ " where user_id=?";
 
 			PreparedStatement ps = con.prepareStatement(sql);
