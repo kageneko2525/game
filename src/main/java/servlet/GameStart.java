@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.GameDao;
+import model.Game;
 import model.GameStartLogic;
 import model.Point;
 import model.UsePoint;
@@ -36,7 +38,7 @@ public class GameStart extends HttpServlet {
 			throws ServletException, IOException {
 
 		//リダイレクト先のパスを入れる変数
-		String path ="/WEB-INF/jsp/gamemenu.jsp";
+		String path = "/WEB-INF/jsp/gamemenu.jsp";
 
 		HttpSession session = request.getSession();
 		boolean keepFlg = true;
@@ -50,6 +52,7 @@ public class GameStart extends HttpServlet {
 			session.setAttribute("loginError", "ログインしてください。");
 			path = "/WEB-INF/jsp/login.jsp";
 			keepFlg = false;
+			
 		}
 		int gameId = -1;
 		int levelId = -1;
@@ -70,7 +73,6 @@ public class GameStart extends HttpServlet {
 			usePoint.setLevelId(levelId);
 
 		} catch (Exception e) {
-			
 
 			if (keepFlg) {
 				//存在しない難易度やIDの場合ゲームメニューへ飛ばす
@@ -82,35 +84,32 @@ public class GameStart extends HttpServlet {
 			}
 
 		}
-
 		GameStartLogic gameStartLogic = new GameStartLogic();
+		GameDao gameDao = new GameDao();
+		
 
 		if (keepFlg && !gameStartLogic.checkGameLevel(gameId, levelId)) {
 			//存在しない難易度の場合ゲームメニューへ飛ばす
 			path = "/WEB-INF/jsp/gamemenu.jsp";
-			keepFlg = false;
+
 			session.setAttribute("gameStartError", "存在しない難易度です。");
 
-		}
-
-
-		if (keepFlg && !gameStartLogic.checkEnoughPoint(user, usePoint, point)) {
+		} else if (keepFlg &&!gameStartLogic.checkEnoughPoint(user, usePoint, point)) {
 
 			//ポイントが足りない場合ゲームメニューへ飛ばす
 			path = "/WEB-INF/jsp/gamemenu.jsp";
 			session.setAttribute("gameStartError", "ポイントが足りません。");
-			keepFlg = false;
+
+		}
+		if (keepFlg &&gameStartLogic.updatePoint(user, point, usePoint)) {
+			Game game = new Game();
+			game.setGameId(gameId);
+			gameDao.getGameByGameId(game);
+			path = "/WEB-INF/jsp/games/"+game.getGamePath()+".jsp";
 		}
 
-
-		
-		
-		if(keepFlg && gameStartLogic.updatePoint(user, point, usePoint)) {
-			path = "/WEB-INF/jsp/games/lookfor.jsp";
-		}
-		
 		session.setAttribute("point", point);
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}

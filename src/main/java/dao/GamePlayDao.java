@@ -63,7 +63,7 @@ public class GamePlayDao extends BaseDao {
 
 					this.connect();
 
-					String sql = "SELECT play_id,user_id game_id, start , end"
+					String sql = "SELECT play_id,user_id, game_id, start , end"
 							+ "FROM user ";
 
 					PreparedStatement ps = con.prepareStatement(sql);

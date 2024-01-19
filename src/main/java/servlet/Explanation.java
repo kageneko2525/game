@@ -31,8 +31,7 @@ public class Explanation extends HttpServlet {
 		
 		if(session==null) {
 			path ="/WEB-INF/jsp/login.jsp";
-		}
-		if(gamePath ==null) {
+		}else if(gamePath ==null) {
 			path = "/WEB-INF/jsp/gamemenu.jsp";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
