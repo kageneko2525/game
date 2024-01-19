@@ -10,6 +10,7 @@
 
 <link rel="stylesheet" href="./css/header.css">
 <link rel="stylesheet" href="./css/menu.css">
+<link rel="stylesheet" href="./css/ranking.css">
 <link rel="stylesheet" href="./css/base.css">
 <link rel="stylesheet" href="./css/footer.css">
 
@@ -27,10 +28,14 @@
 
 
 
-	<div id="userDataContainer">
-		<!-- ユーザーデータを表示するためのコンテナ -->
-	</div>
-<script src="./js/ranking.js"></script>
+	<table id="userDataContainer">
+		<tr>
+			<td>順位</td>
+			<td>ユーザー名</td>
+			<td>ポイント</td>
+		</tr>
+	</table>
+	<script src="./js/ranking.js"></script>
 </body>
 <footer>
 	<div id="footer__back--white">
