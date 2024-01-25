@@ -1,0 +1,70 @@
+@charset "UTF-8";
+body {
+   background-color: rgb(7, 119, 7);
+}
+#game {
+    height: 600px;
+    z-index: 1;
+    background-color: rgb(7, 119, 7);
+    font-size: 30px;
+}
+#game img {
+    width: 150px;
+}
+/* コンピューター*/
+#com {
+    height: 300px;
+}
+#com2 {
+    position: fixed;
+}
+#com3 {
+    position: fixed;
+    z-index: -999;
+}
+
+/* プレイヤー */
+#player {
+    height: 300px;
+}
+#player1 {
+    z-index: 999;
+}
+.playerInfo {
+    display: inline;
+    margin-right: 10px;
+}
+
+/* コントローラー */
+.controller {
+    height: 400px;
+    text-align: center;
+}
+#stand {
+    width: 150px;
+    height: 90px;
+}
+#hit {
+    width: 150px;
+    height: 90px;
+}
+.dou {
+    height: 90px;
+}
+.double {
+    width: 150px;
+    height: 90px;
+}
+#home {
+    width: 150px;
+    height: 90px;
+    display: none;
+}
+#blackJack {
+    color: rgb(76, 225, 238);
+    display: none;
+}
+#brst {
+    color: rgb(255, 86, 86);
+    display: none;
+}

@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>game</title>
-    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="./css/blackjack.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -17,8 +17,8 @@
             <p id="comsum">0</p>
             <!-- コンピューターのカード -->
             <div class ="comCard">
-                <img id ="com_1" src="img/card_back.png" >
-                <img src="img/card_back.png" id="com_2">
+                <img id ="com_1" src="./img/card_back.png" >
+                <img src="./img/card_back.png" id="com_2">
                 <img src="" id="com_3">
                 <img src="" id="com_4">
                 <img src="" id="com_5">
@@ -32,8 +32,8 @@
               <p id="brst" class="playerInfo">バースト</p>
             <!-- プレイヤーのカード -->
             <div class="playerCard">
-                <img src="img/card_back.png" id="player_1">
-                <img src="img/card_back.png" id="player_2">
+                <img src="./img/card_back.png" id="player_1">
+                <img src="./img/card_back.png" id="player_2">
                 <img src="" id="player_3">
                 <img src="" id="player_4">
                 <img src="" id="player_5">
@@ -52,6 +52,6 @@
                 <button id="home" onclick="location.href='home.html'">タイトルへ</button>
         </div>
 </div>
-<script src="js/game.js"></script>
+<script src="./js/blackjack.js"></script>
 </body>
 </html>

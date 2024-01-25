@@ -152,13 +152,13 @@ function decideNum (pattern,num) {
 //画像の変更
 function changeImg(where,pat,num){
     if(pat == "ダイヤ"){
-        where.src = "img/diamond/card_diamond_0"+num+".png";
+        where.src = "./img/diamond/card_diamond_0"+num+".png";
     }else if(pat == "クラブ"){
-        where.src = "img/club/card_club_0"+num+".png";
+        where.src = "./img/club/card_club_0"+num+".png";
     }else if(pat == "ハート"){
-        where.src = "img/heart/card_heart_0"+num+".png";
+        where.src = "./img/heart/card_heart_0"+num+".png";
     }else if(pat == "スペード"){
-        where.src = "img/spead/card_spade_0"+num+".png";
+        where.src = "./img/spead/card_spade_0"+num+".png";
     }
 }
 
