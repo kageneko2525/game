@@ -3,6 +3,8 @@ package model;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.validator.routines.EmailValidator;
+
 import dao.PointDao;
 import dao.UserDao;
 
@@ -51,6 +53,9 @@ public class RegistrationLogic {
 
 			} else if (mail.length() > 100) {
 				return "メールアドレスが長すぎます";
+				
+			} else if (!isValidMailAddress(mail)) {
+				return "使用できないメールアドレスです";
 
 				//正しい名前とパスワードか判定
 			} else if (checkCorrectName(userName) && checkCorrectPass(pass)) {
@@ -65,7 +70,7 @@ public class RegistrationLogic {
 					if (userDao.findByMail(mail)) {
 
 						//いたらエラーメッセージを返す
-						return "すでに登録されているメールアドレスです";
+						return "使用できないメールアドレスです";
 					} else {
 
 						//いないなら
@@ -167,6 +172,23 @@ public class RegistrationLogic {
 
 		return st == null || st.isEmpty();
 
+	}
+
+	/**
+	 * メールアドレスチェック
+	 * @param mail 検証対象の値
+	 * @return 結果（true：メールアドレス、false：メールアドレスではない）
+	 */
+	public static boolean isValidMailAddress(String mail) {
+		boolean result = false;
+
+		if (mail != null) {
+			if (EmailValidator.getInstance().isValid(mail)) {
+				result = true;
+			}
+		}
+
+		return result;
 	}
 
 }
