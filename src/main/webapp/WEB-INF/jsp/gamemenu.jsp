@@ -48,9 +48,8 @@ pt
 			</div>
 			<div class="gameBox">
 				<p>ブラックジャック</p>
-				<a href="Explanation?Blackjack"><img src="./images/gameImg/sample_blackjack.png" alt=""></a>
+				<a href="Explanation?game=Blackjack"><img src="./images/gameImg/sanmple_blackjack.png" alt=""></a>
 			</div>
-			
 			<div class="gameBox">
 				<p></p>
 				<a href=""><img src="" alt=""></a>
