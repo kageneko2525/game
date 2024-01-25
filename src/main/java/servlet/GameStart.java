@@ -106,14 +106,12 @@ public class GameStart extends HttpServlet {
 			game.setGameId(gameId);
 			gameDao.getGameByGameId(game);
 			path = "/WEB-INF/jsp/games/"+game.getGamePath()+".jsp";
-		}
-
-		
-		if(keepFlg && gameStartLogic.updatePoint(user, point, usePoint)) {
-			path = "/WEB-INF/jsp/games/lookfor.jsp";
 			session.setAttribute("gameId", gameId);
 			session.setAttribute("levelId", levelId);
 		}
+
+		
+
 		
 		session.setAttribute("point", point);
 
