@@ -40,7 +40,7 @@ pt
 		<div class="box">
 			<div class="gameBox">
 				<p>神経衰弱</p>
-				<a href="Explanation?game=comparison"><img src="./images/gameImg/sample_comparison.png" alt=""></a>
+				<a href="Explanation?game=Comparison"><img src="./images/gameImg/sample_comparison.png" alt=""></a>
 			</div>
 			<div class="gameBox">
 				<p>あいつをさがせ！</p>
