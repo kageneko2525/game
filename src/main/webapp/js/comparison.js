@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			for (let j = 0; j < 13; j++) {
 				let div = document.createElement('div');
 				let card = cards[i * 13 + j];
-				div.style.backgroundImage = `url(cards/${card.front})`;
+				div.style.backgroundImage = `url(./images/games/cards/${card.front})`;
 				div.classList.add('card', 'back');
 				div.onclick = flip;
 				//クリック時の挙動の判定
