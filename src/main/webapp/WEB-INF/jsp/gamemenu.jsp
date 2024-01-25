@@ -47,6 +47,11 @@ pt
 				<a href="Explanation?game=Lookfor"><img src="./images/gameImg/sample_lookfor.png" alt=""></a>
 			</div>
 			<div class="gameBox">
+				<p>ブラックジャック</p>
+				<a href="Explanation?Blackjack"><img src="./images/gameImg/sample_blackjack.png" alt=""></a>
+			</div>
+			
+			<div class="gameBox">
 				<p></p>
 				<a href=""><img src="" alt=""></a>
 			</div>
