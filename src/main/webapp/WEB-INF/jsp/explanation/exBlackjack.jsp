@@ -15,7 +15,7 @@
     
     <!-- ゲームスタートボタン -->
     <div class="gamestart">
-        <button onclick="location.href='game.html'">ゲームスタート</button>
+        <button onclick="location.href='blackjack.jsp'">ゲームスタート</button>
     </div>
     <!--遊び方  -->
   <div class="overlay" id="js-overlay"></div>
