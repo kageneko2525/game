@@ -39,10 +39,6 @@ pt
 	<main>
 		<div class="box">
 			<div class="gameBox">
-				<p>神経衰弱</p>
-				<a href="Explanation?game=Comparison"><img src="./images/gameImg/sample_comparison.png" alt=""></a>
-			</div>
-			<div class="gameBox">
 				<p>あいつをさがせ！</p>
 				<a href="Explanation?game=Lookfor"><img src="./images/gameImg/sample_lookfor.png" alt=""></a>
 			</div>
@@ -51,8 +47,8 @@ pt
 				<a href="Explanation?game=Blackjack"><img src="./images/gameImg/sanmple_blackjack.png" id="blackjack" alt="" ></a>
 			</div>
 			<div class="gameBox">
-				<p></p>
-				<a href=""><img src="" alt=""></a>
+				<p>神経衰弱</p>
+				<a href="Explanation?game=Comparison"><img src="./images/gameImg/sample_comparison.png" alt=""></a>
 			</div>
 		</div>
 	</main>
