@@ -18,7 +18,7 @@ div.card {
 }
 
 div.back {
-	background-image: url(./images/games/cards/back.png) !important;
+	background-image: url(../images/games/cards/back.png) !important;
 }
 
 @keyframes fadeout {
