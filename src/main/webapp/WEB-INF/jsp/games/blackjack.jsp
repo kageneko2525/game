@@ -17,8 +17,8 @@
             <p id="comsum">0</p>
             <!-- コンピューターのカード -->
             <div class ="comCard">
-                <img id ="com_1" src="./images/games/playing_caeds/card_back.png" >
-                <img src="./imges/playing_card/card_back.png" id="com_2">
+                <img id ="com_1" src="./images/games/playing_cards/card_back.png" >
+                <img src="./images/games/playing_cards/card_back.png" id="com_2">
                 <img src="" id="com_3">
                 <img src="" id="com_4">
                 <img src="" id="com_5">
@@ -32,8 +32,8 @@
               <p id="brst" class="playerInfo">バースト</p>
             <!-- プレイヤーのカード -->
             <div class="playerCard">
-                <img src="./images/games/playing_caeds/card_back.png" id="player_1">
-                <img src="./images/games/playing_caeds/card_back.png" id="player_2">
+                <img src="./images/games/playing_cards/card_back.png" id="player_1">
+                <img src="./images/games/playing_cards/card_back.png" id="player_2">
                 <img src="" id="player_3">
                 <img src="" id="player_4">
                 <img src="" id="player_5">

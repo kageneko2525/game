@@ -152,13 +152,13 @@ function decideNum (pattern,num) {
 //画像の変更
 function changeImg(where,pat,num){
     if(pat == "ダイヤ"){
-        where.src = "./images/games/playing_caeds/diamond/card_diamond_0"+num+".png";
+        where.src = "./images/games/playing_cards/diamond/card_diamond_0"+num+".png";
     }else if(pat == "クラブ"){
-        where.src = "./images/games/playing_caeds/club/card_club_0"+num+".png";
+        where.src = "./images/games/playing_cards/club/card_club_0"+num+".png";
     }else if(pat == "ハート"){
-        where.src = "./images/games/playing_caeds/heart/card_heart_0"+num+".png";
+        where.src = "./images/games/playing_cards/heart/card_heart_0"+num+".png";
     }else if(pat == "スペード"){
-        where.src = "./images/games/playing_caeds/spead/card_spade_0"+num+".png";
+        where.src = "./images/games/playing_cards/spead/card_spade_0"+num+".png";
     }
 }
 
