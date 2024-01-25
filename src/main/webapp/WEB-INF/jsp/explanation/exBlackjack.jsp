@@ -15,7 +15,11 @@
     
     <!-- ゲームスタートボタン -->
     <div class="gamestart">
-        <button onclick="location.href='blackjack.jsp'">ゲームスタート</button>
+        <form action="GameStart" method="post">
+    		<input type="hidden" name="gameId" value="2">
+    		<input type="hidden" name="levelId" value="1">
+   			 <button type="submit">ゲームを開始</button>
+		</form>
     </div>
     <!--遊び方  -->
   <div class="overlay" id="js-overlay"></div>
