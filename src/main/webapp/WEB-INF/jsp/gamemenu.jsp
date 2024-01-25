@@ -26,10 +26,10 @@
 		<h1>ミニゲーム一覧</h1>
 	<h2>所持ポイント: 
 
-<%if(point != null ){ %>
-	<%=point.getPoint() %>
+<%if(point == null ){ %>
+	0
 <%}else{ %>
-0
+<%=point.getPoint() %>
 <%} %>
 pt
 </h2>
@@ -39,8 +39,8 @@ pt
 	<main>
 		<div class="box">
 			<div class="gameBox">
-				<p></p>
-				<a href=""><img src="" alt=""></a>
+				<p>神経衰弱</p>
+				<a href="Explanation?game="><img src="" alt=""></a>
 			</div>
 			<div class="gameBox">
 				<p>あいつをさがせ！</p>

@@ -107,6 +107,8 @@ public class GameStart extends HttpServlet {
 		
 		if(keepFlg && gameStartLogic.updatePoint(user, point, usePoint)) {
 			path = "/WEB-INF/jsp/games/lookfor.jsp";
+			session.setAttribute("gameId", gameId);
+			session.setAttribute("levelId", levelId);
 		}
 		
 		session.setAttribute("point", point);
