@@ -44,11 +44,11 @@ pt
 			</div>
 			<div class="gameBox">
 				<p>ブラックジャック</p>
-				<a href="Explanation?game=Blackjack"><img src="./images/gameImg/sanmple_blackjack.png" id="blackjack" alt="" ></a>
+				<a href="Explanation?game=Blackjack"><img src="./images/gameImg/sanmple_blackjack.png" alt="" width="400" height="397"></a>
 			</div>
 			<div class="gameBox">
 				<p>神経衰弱</p>
-				<a href="Explanation?game=Comparison"><img src="./images/gameImg/sample_comparison.png" alt=""></a>
+				<a href="Explanation?game=Comparison"><img src="./images/gameImg/sample_comparison.png" alt="" width="700" height="397"></a>
 			</div>
 		</div>
 	</main>
