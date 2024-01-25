@@ -6,14 +6,16 @@
 <script src="./js/game.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+ <link rel="stylesheet" href="./css/exComparison.css">
 </head>
 <body>
 	<h1>神経衰弱</h1>
-	<p>必要ポイント：１００</p>
+	<p>1回:100pt</p>
+	<p>連続正解と少ないミスが高得点の秘訣！お前の記憶力を見せてみろ！</p>
 	<form action="GameStart" method="post">
 		<input type="hidden" name="gameId" value="3"> <input
 			type="hidden" name="levelId" value="1"> <input type="submit"
-			value="ゲームを開始">
+			value="ゲームを開始" class="button">
 	</form>
 </body>
 </html>
