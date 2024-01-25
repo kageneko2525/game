@@ -72,7 +72,7 @@ public class Registration extends HttpServlet {
 			//エラーメッセージがないなら登録成功
 			//indexへ
 			pointDao.getPoint(point);
-			session.setAttribute("point", point);
+			session.setAttribute("point", 1000);
 			session.setAttribute("loginUser", registrationUser);
 			path ="Index";
 			session.setMaxInactiveInterval(60*10);
