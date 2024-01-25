@@ -17,7 +17,7 @@
             <p id="comsum">0</p>
             <!-- コンピューターのカード -->
             <div class ="comCard">
-                <img id ="com_1" src="./img/card_back.png" >
+                <img id ="com_1" src="./images/games/playing_caeds/card_back.png" >
                 <img src="./img/card_back.png" id="com_2">
                 <img src="" id="com_3">
                 <img src="" id="com_4">
