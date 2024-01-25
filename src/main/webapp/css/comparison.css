@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+body {
+	background-color: #32CD32;
+}
+
+#cardgrid {
+	width: 90%;
+	margin: 10px auto;
+	display: grid;
+	grid-template-columns: repeat(13, 1fr);
+	gap: 0.5vh;
+}
+
+div.card {
+	aspect-ratio: 2 / 3;
+	background-size: contain;
+}
+
+div.back {
+	background-image: url(../cards/back.png) !important;
+}
+
+@keyframes fadeout {
+	40% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+div.fadeout {
+	animation-name: fadeout;
+	animation-duration: 1.2s;
+	animation-fill-mode: forwards;
+}
+
+#time,
+p {
+	font-size: 150%;
+}
+
+#startBt,
+#send {
+	width: 10em;
+	height: 3em;
+}
+
+
+#end,
+#pt {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.5em
+}

@@ -108,9 +108,11 @@ public class GameStart extends HttpServlet {
 			path = "/WEB-INF/jsp/games/"+game.getGamePath()+".jsp";
 		}
 
-<<<<<<< HEAD
-
-		
+		if(keepFlg && gameStartLogic.updatePoint(user, point, usePoint)) {
+			path = "/WEB-INF/jsp/games/comparison.jsp";
+			session.setAttribute("gameId", gameId);
+			session.setAttribute("levelId", levelId);
+		}
 		
 		if(keepFlg && gameStartLogic.updatePoint(user, point, usePoint)) {
 			path = "/WEB-INF/jsp/games/lookfor.jsp";
@@ -118,8 +120,6 @@ public class GameStart extends HttpServlet {
 			session.setAttribute("levelId", levelId);
 		}
 		
-=======
->>>>>>> branch 'shain' of https://github.com/kageneko2525/game.git
 		session.setAttribute("point", point);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
