@@ -49,7 +49,12 @@
             <div class="dou">
                 <button class="double">DOUBLE</button>
             </div>
-                <button id="home" onclick="location.href='home.html'">タイトルへ</button>
+			<form action="Result" method="post" style="visibility: hidden;"
+				id="form">
+				<input id="score" type="hidden" value="" name="score">
+				<button type="submit" id="send">Submit</button>
+			</form>
+			<button id="home" onclick="location.href='home.html'">タイトルへ</button>
         </div>
 </div>
 <script src="./js/blackjack.js"></script>
