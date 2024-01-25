@@ -1,0 +1,131 @@
+@charset "UTF-8";
+header {
+    height: 100px;
+    text-align: center;
+    font-size: 30px;
+}
+body {
+    background-color: forestgreen;
+}
+.gamestart{
+    margin-top: 100px;
+    height: 150px;
+    text-align: center;
+}
+.gamestart button {
+    width: 350px;
+    height: 100px;
+    font-size: 30px;
+}
+.howToPlay {
+    height: 100px;
+    text-align: center;
+}
+.howToPlay button {
+    width: 350px;
+    height: 100px;
+    font-size: 30px;
+}
+.point {
+    text-align: right;
+    margin-right: 50px;
+}
+.back {
+    height: 100px;
+    text-align: center;
+    margin-top: 50px;
+}
+.back button{
+    width: 350px;
+    height: 100px;
+    font-size: 30px;
+} 
+
+/* モーダルウィンドウ */
+
+/* ウィンドウ表示時のグレー背景 */
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: grey;
+  opacity: .6;
+  display: none;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+
+/* モーダルウィンドウ本体 */
+.modal {
+  width: 90%;
+  height: auto;
+  border: 1px solid #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  display: none;
+}
+.modal h2 {
+  margin-left: 10px;
+  z-index: 10;
+}
+.modal p {
+  margin-left: 10px;
+  z-index: 10;
+  font-size: 14px;
+}
+
+/* ウィンドウ非表示ボタン */
+.modal-close__wrap {
+  position: absolute;
+  right: 40px;
+  top: 20px;
+}
+.modal-close {  
+  background: transparent;
+  border-color: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  width: 28px;
+  display: block;
+  height: 28px;
+}
+
+.modal-close span {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: black;
+  display: block;
+}
+
+.modal-close span:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.modal-close span:nth-child(2) {
+  transform: rotate(-45deg);
+}
+
+ /* ウィンドウ表示 */
+.modal-open {
+  height: 100px;
+  text-align: center;
+  width: 350px;
+  height: 100px;
+  font-size: 30px;
+}
+
+.overlay.open {
+  display: block;
+}
+
+.modal.open {
+  display: block;
+}
