@@ -169,8 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function view(getPoint) {
 	let form = document.getElementById("form");
-	let score = document.getElementById("score")
+	let score = document.getElementById("score");
 
-	score.value = getPoint;
+	score.value = getPoint / 10;
 	form.style.visibility = "";
 }
