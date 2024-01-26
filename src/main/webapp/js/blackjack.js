@@ -324,5 +324,13 @@ function result(){
 function showResult() {
     alert("あなたの手:" + sumPhand + "\nコンピュータの手:" + sumChand + "\n結果:" + resultSentence+ "\n配当:"+bet);
 }
-
-
+//getpointの計算
+/*	function calculationPoint(){
+		bet++;
+		if(bet = 0){
+			getpoint = (0 - bet);
+		}else{
+			getpoint = (bet + origin);
+		}
+	}
+*/
