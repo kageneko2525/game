@@ -25,6 +25,7 @@ let doubleButton = document.querySelector(".double");
 let standButton = document.getElementById("stand");
 let hitButton = document.getElementById("hit");
 let homeButton = document.getElementById("home");
+let myPoint = document.getElementById("myPoint");
 
 //プレイヤーの手札を決めるための数字(1~52)
 let playerHandNum;
@@ -78,7 +79,7 @@ while (true) {
 for (i = 0; i < 52; i++){
     yama[i] = (i+1);
 }
-
+console.log(myPoint);
 //初期手札
 first();
 function first (){
@@ -325,7 +326,7 @@ function showResult() {
     alert("あなたの手:" + sumPhand + "\nコンピュータの手:" + sumChand + "\n結果:" + resultSentence+ "\n配当:"+bet);
 }
 //getpointの計算
-/*	function calculationPoint(){
+	function calculationPoint(){
 		bet++;
 		if(bet = 0){
 			getpoint = (0 - bet);
@@ -333,4 +334,4 @@ function showResult() {
 			getpoint = (bet + origin);
 		}
 	}
-*/
+

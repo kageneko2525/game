@@ -59,7 +59,7 @@
 		</form>
         </div>
 </div>
-<h2>
+<h2 id="myPoint" style="visibility: hidden;">
 		<%if (point == null) {%>
 			0
 		<%} else {%>
