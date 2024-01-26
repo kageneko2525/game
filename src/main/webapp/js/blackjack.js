@@ -68,6 +68,7 @@ let getPoint = 0;
 
 //ベットさせるよ
 while (true) {
+	console.log(myPoint.textContent);
     bet = prompt("いくらベットしますか");
     if (!bet || isNaN(bet)) {// 入力が空白または数字以外の場合は再度入力
         alert("有効な整数を入力してください。");
