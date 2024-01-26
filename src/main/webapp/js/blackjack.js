@@ -72,9 +72,9 @@ while (true) {
     bet = prompt("いくらベットしますか");
     if (!bet || isNaN(bet)) {// 入力が空白または数字以外の場合は再度入力
         alert("有効な整数を入力してください。");
-    } else if(myPoint > bet){
+    } /*else if(myPoint > bet){
 		alert("所持ポイントより高い額はベットできません\nあなたの所持ポイントは"+myPoint+"です");
-	}else{	
+	}*/else{	
         break;//整数入力されたんで抜ける
     }
     origin = bet;
