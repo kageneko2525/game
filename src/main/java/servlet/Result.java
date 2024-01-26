@@ -74,7 +74,7 @@ public class Result extends HttpServlet {
 			try {
 				
 				//トライキャッチを使って数字に変換できるかチェック
-				score = Integer.parseInt(scoreSt) * 10;
+				score = Integer.parseInt(scoreSt);
 				
 				//現在ポイントをセッションスコープから取得
 				Point point = (Point) session.getAttribute("point");
@@ -100,6 +100,7 @@ public class Result extends HttpServlet {
 				
 				//具体的な手順
 				//DAO　Logicの作成
+				//GAmeid levelId　userIdごとに一列
 				//DAOを使ってそもそも初プレイの場合はデータをインサート
 				//二回目以降の場合はデータを比較して大きかったら更新
 				//初プレイかどうかはDAOでデータあるかどうか調べる
