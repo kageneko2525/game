@@ -311,7 +311,9 @@ function result(){
     setTimeout(function() {
         showResult();
         getPoint = origin + bet;
+        console.log(getPoint)
         document.getElementById("score").value = getPoint;
+        document.getElementById("form").submit();
         //タイトルボタンを表示する
         homeButton.style.display = "block";
       }, 2000);
