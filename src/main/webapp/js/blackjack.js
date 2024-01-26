@@ -334,7 +334,7 @@ function showResult() {
 	function calculationPoint(){
 		 console.log(getPoint);
 		if(bet = 0){
-			getpoint = (1 - bet);
+			getPoint = (1 - bet);
 			 console.log(getPoint);
 		}else{
 			getpoint = (bet + origin);
