@@ -314,7 +314,6 @@ function result(){
         console.log(getPoint);
         let point =document.getElementById("point");
         let form = document.getElementById("form");
-        getpoint = getPoint/10;
         point.value = getPoint;
         form.style.visibility = "";
         //タイトルボタンを表示する
