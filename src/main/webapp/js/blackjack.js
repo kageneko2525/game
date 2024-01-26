@@ -332,11 +332,14 @@ function showResult() {
 }
 //getpointの計算
 	function calculationPoint(){
+		 console.log(getPoint);
 		if(bet = 0){
 			getpoint = (1 - bet);
+			 console.log(getPoint);
 		}else{
 			getpoint = (bet + origin);
 			getpoint++
+			 console.log(getPoint);
 		}
 	}
 
