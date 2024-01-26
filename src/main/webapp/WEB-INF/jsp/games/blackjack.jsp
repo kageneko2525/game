@@ -51,7 +51,7 @@
             </div>
 			<form action="Result" method="post"
 				id="form">
-				<input id="score" type="hidden" value="" name="score">
+				<input id="point" type="hidden" value="" name="score">
 				<button type="submit" id="send">Submit</button>
 			</form>
         </div>
