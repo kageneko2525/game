@@ -49,11 +49,11 @@
             <div class="dou">
                 <button class="double">DOUBLE</button>
             </div>
-			<form action="Result" method="post"
-				id="form">
-				<input id="point" type="hidden" value="" name="score">
-				<button type="submit" id="send">Submit</button>
-			</form>
+		<form style="visibility: hidden;" id="form" action="Result"
+			method="post">
+			<input id="point" type="hidden" value="" name="score"> <input
+				type="submit" value="結果を送信" id="endButton">
+		</form>
         </div>
 </div>
 <script src="./js/blackjack.js"></script>

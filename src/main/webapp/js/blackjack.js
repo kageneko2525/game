@@ -312,8 +312,10 @@ function result(){
         showResult();
         getPoint = origin + bet;
         console.log(getPoint)
-        document.getElementById("point").value = getPoint;
-        document.getElementById("form").submit();
+        let point =document.getElementById("point")
+        let form = document.getElementById("form");
+        point.value = getPoint;
+        form.style.visibility = "";
         //タイトルボタンを表示する
 
       }, 2000);
