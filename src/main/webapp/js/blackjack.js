@@ -25,6 +25,7 @@ let doubleButton = document.querySelector(".double");
 let standButton = document.getElementById("stand");
 let hitButton = document.getElementById("hit");
 let homeButton = document.getElementById("home");
+let score = document.getElementById("score");
 
 //プレイヤーの手札を決めるための数字(1~52)
 let playerHandNum;
@@ -59,6 +60,8 @@ let resultSentence;
 //山札
 let yama = [];
 
+let origin;
+
 //ここまで変数
 
 //ベットさせるよ
@@ -69,6 +72,7 @@ while (true) {
     } else {
         break;//整数入力されたんで抜ける
     }
+    origin = bet;
 }
 //山札作成
 for (i = 0; i < 52; i++){
@@ -306,6 +310,7 @@ function result(){
     //2秒後に結果を表示
     setTimeout(function() {
         showResult();
+        score = origin + bet;
         //タイトルボタンを表示する
         homeButton.style.display = "block";
       }, 2000);
