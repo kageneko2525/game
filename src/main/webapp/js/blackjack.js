@@ -26,6 +26,7 @@ let standButton = document.getElementById("stand");
 let hitButton = document.getElementById("hit");
 let homeButton = document.getElementById("home");
 let myPoint = document.getElementById("myPoint");
+myPoint = parseInt(myPoint,10);
 
 //プレイヤーの手札を決めるための数字(1~52)
 let playerHandNum;
@@ -70,7 +71,9 @@ while (true) {
     bet = prompt("いくらベットしますか");
     if (!bet || isNaN(bet)) {// 入力が空白または数字以外の場合は再度入力
         alert("有効な整数を入力してください。");
-    } else {
+    } else if(myPoint > bet){
+		alert("所持ポイントより高い額はベットできません\nあなたの所持ポイントは"+myPoint+"です");
+	}else{	
         break;//整数入力されたんで抜ける
     }
     origin = bet;

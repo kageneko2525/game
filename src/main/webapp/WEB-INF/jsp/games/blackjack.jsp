@@ -64,7 +64,7 @@
 			0
 		<%} else {%>
 		<%=point.getPoint()%>
-		<%}%>pt
+		<%}%>
 </h2>
 <script src="./js/blackjack.js"></script>
 </body>
