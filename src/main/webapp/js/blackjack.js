@@ -64,7 +64,7 @@ let resultSentence;
 let yama = [];
 
 let origin = 0;
-let getPoint = 0;
+let getPoint;
 
 //ここまで変数
 
