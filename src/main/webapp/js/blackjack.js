@@ -315,7 +315,7 @@ function result(){
         document.getElementById("point").value = getPoint;
         document.getElementById("form").submit();
         //タイトルボタンを表示する
-        homeButton.style.display = "block";
+        //homeButton.style.display = "block";
       }, 2000);
 }
 //アラートで結果を表示
