@@ -311,8 +311,8 @@ function result(){
     setTimeout(function() {
         showResult();
         getPoint = origin + bet;
-        console.log(getPoint)
-        let point =document.getElementById("point")
+        console.log(getPoint);
+        let point =document.getElementById("point");
         let form = document.getElementById("form");
         point.value = getPoint;
         form.style.visibility = "";
