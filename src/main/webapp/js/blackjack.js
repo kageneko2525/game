@@ -27,7 +27,7 @@ let hitButton = document.getElementById("hit");
 let homeButton = document.getElementById("home");
 let myPoint = document.getElementById("myPoint");
 myPoint = parseInt(myPoint,10);
-
+console.log(myPoint);
 //プレイヤーの手札を決めるための数字(1~52)
 let playerHandNum;
 //プレイヤーの手札の配列
