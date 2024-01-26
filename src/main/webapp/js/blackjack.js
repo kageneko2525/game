@@ -75,7 +75,7 @@ while (true) {
     if (!bet || isNaN(bet)) {// 入力が空白または数字以外の場合は再度入力
         alert("有効な整数を入力してください。");
     } else if(intPoint < bet){
-		alert("所持ポイントより高い額はベットできません\nあなたの所持ポイントは"+myPoint+"です");
+		alert("所持ポイントより高い額はベットできません\nあなたの所持ポイントは"+intPoint+"です");
 	}else{	
         break;//整数入力されたんで抜ける
     }
@@ -85,7 +85,6 @@ while (true) {
 for (i = 0; i < 52; i++){
     yama[i] = (i+1);
 }
-console.log(myPoint);
 //初期手札
 first();
 function first (){
@@ -317,7 +316,7 @@ function result(){
     //2秒後に結果を表示
     setTimeout(function() {
         showResult();
-        getPoint = origin + bet;
+        calculationPoint();
         console.log(getPoint);
         let point =document.getElementById("point");
         let form = document.getElementById("form");
@@ -333,11 +332,11 @@ function showResult() {
 }
 //getpointの計算
 	function calculationPoint(){
-		bet++;
 		if(bet = 0){
-			getpoint = (0 - bet);
+			getpoint = (1 - bet);
 		}else{
 			getpoint = (bet + origin);
+			getpoint++
 		}
 	}
 
