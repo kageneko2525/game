@@ -59,8 +59,8 @@ let resultSentence;
 //山札
 let yama = [];
 
-let origin;
-let getPoint;
+let origin = 0;
+let getPoint = 0;
 
 //ここまで変数
 
