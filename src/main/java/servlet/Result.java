@@ -74,7 +74,7 @@ public class Result extends HttpServlet {
 			try {
 				
 				//トライキャッチを使って数字に変換できるかチェック
-				score = Integer.parseInt(scoreSt) * 10;
+				score = Integer.parseInt(scoreSt) ;
 				
 				//現在ポイントをセッションスコープから取得
 				Point point = (Point) session.getAttribute("point");
