@@ -25,8 +25,7 @@
 
 	<button id="gameId" onclick="fetchUserData('0')">ブラックジャック</button>
 	<button id="gameId" onclick="fetchUserData('1')">あいつをさがせ</button>
-	<button id="gameId" onclick="fetchUserData('2')">真剣衰弱</button>
-
+	<button id="gameId" onclick="fetchUserData('2')">神経衰弱</button>
 
 
 	<table id="userDataContainer">

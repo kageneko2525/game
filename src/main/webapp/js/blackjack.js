@@ -324,15 +324,15 @@ function result(){
     hitButton.disabled = true;
     //2秒後に結果を表示
     setTimeout(function() {
+		//結果を表示させる
         showResult();
+        //セッションスコープのgetpointに送るための結果を設定
         let point =document.getElementById("point");
         let form = document.getElementById("form");
-        console.log(bet);
         
-        if(bet == 0){
-			console.log(origin);
+        if(bet == 0){//ベットが0の時＝負けた時
+			//負けたからポイントを引きたいのでベット額の絶対値をとる
 			bet = (0 - origin);
-			console.log(bet);
 		}
         point.value = bet;
         form.style.visibility = "";
