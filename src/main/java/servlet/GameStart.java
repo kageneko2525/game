@@ -71,6 +71,7 @@ public class GameStart extends HttpServlet {
 
 			usePoint.setGameId(gameId);
 			usePoint.setLevelId(levelId);
+			System.out.println(levelId);
 
 		} catch (Exception e) {
 

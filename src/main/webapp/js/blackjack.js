@@ -78,8 +78,10 @@ while (true) {
 	}else{	
         break;//整数入力されたんで抜ける
     }
-    origin = bet;
 }
+console.log(bet);
+origin = bet;
+console.log(origin);
 //山札作成
 for (i = 0; i < 52; i++){
     yama[i] = (i+1);
@@ -118,6 +120,12 @@ function first (){
         changeImg(playerElement,playerPattern,playerHandNum);
         //プレイヤーのカードの合計を計算する
         sumPlayerHand();
+        //プレイヤーがブラックジャック、バーストかどうかをチェックする
+  		cheakPlayer(sumPhand);
+   		//プレイヤーがブラックジャック、バーストの場合、ゲームが終わる
+   		if(playerBrst == true || playerBlackjack == true){
+        	result();
+   		}
     }
 }
 //ドロー
@@ -319,7 +327,7 @@ function result(){
         let form = document.getElementById("form");
         console.log(bet);
         
-        if(bet = 0){
+        if(bet == 0){
 			console.log(origin);
 			bet = (0 - origin);
 			console.log(bet);
