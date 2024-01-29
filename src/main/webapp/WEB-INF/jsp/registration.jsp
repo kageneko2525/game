@@ -25,7 +25,6 @@ String registrationError = (String) session.getAttribute("registrationError");
 	if (registrationError != null) {
 	%>
 	<p style="color: red;">
-		※<%=registrationError%></p>
 	<%
 	}
 	%>

@@ -19,7 +19,7 @@
     <!-- ゲームスタートボタン -->
     <div class="gamestart">
         <form action="GameStart" method="post">
-    		<input type="hidden" name="gameId" value="2">
+    		<input type="hidden" name="gameId" value="0">
     		<input type="hidden" name="levelId" value="1">
    			 <button type="submit">ゲームを開始</button>
 		</form>
@@ -81,18 +81,12 @@
     <div class="point">
         <h1>所持ポイント</h1>
 		<h2>
-			<%
-			if (point == null) {
-			%>
-			0
-			<%
-			} else {
-			%>
-			<%=point.getPoint()%>
-			<%
-			}
-			%>
-			pt
+<%if(point == null ){ %>
+	0
+<%}else{ %>
+<%=point.getPoint() %>
+<%} %>
+pt
 		</h2>
 	</div>
 </body>
