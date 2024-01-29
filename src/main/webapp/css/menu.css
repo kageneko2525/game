@@ -25,10 +25,6 @@
 	color: black;
 }
 
-.menu__item {
-  transition-duration: .4s;
-}
-
 .menu__item:hover {
-  transform: scale(1.1);
+  transform: translateY(-10px);
 }
