@@ -27,4 +27,5 @@
 
 .menu__item:hover {
   transform: translateY(-10px);
+  
 }
