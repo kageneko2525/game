@@ -76,7 +76,7 @@ while (true) {
     } else if(intPoint < bet){
 		alert("所持ポイントより高い額はベットできません\nあなたの所持ポイントは"+intPoint+"です");
 	}else if(bet < 0){
-		alert("bet額は0以上にしてください")
+		alert("ベット額は0以上にしてください")
 	}else{	
         break;//整数入力されたんで抜ける
     }
