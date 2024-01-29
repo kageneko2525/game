@@ -335,11 +335,10 @@ function showResult() {
 	function calculationPoint(){
 		 console.log(getPoint);
 		if(bet = 0){
-			getPoint = (1 - bet);
+			getPoint = (0 - bet);
 			 console.log(getPoint);
 		}else{
-			getpoint = (bet + origin);
-			getpoint++
+			getpoint = bet;
 			 console.log(getPoint);
 		}
 	}
