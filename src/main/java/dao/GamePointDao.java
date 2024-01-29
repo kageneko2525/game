@@ -217,7 +217,7 @@ public class GamePointDao extends BaseDao {
 			ResultSet rs = ps.executeQuery();
 
 			if (rs.next()) {
-				
+				gamePoint.setMaxGamePoint(rs.getInt("max_game_point"));
 				return true;
 			}
 		} catch (Exception e) {
