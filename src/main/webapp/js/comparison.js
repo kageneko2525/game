@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					continuousPairRecord = continuousPair;
 
 				//全てペアになった時、タイマーを止め、結果を呼び出す
-				if (pea == 26) {
+				if (pea == 1) {
 					clearInterval(timer);
 					stopTime += (Date.now() - startTime);
 					result();
