@@ -25,6 +25,10 @@ let doubleButton = document.querySelector(".double");
 let standButton = document.getElementById("stand");
 let hitButton = document.getElementById("hit");
 let homeButton = document.getElementById("home");
+let myPoint = document.getElementById("myPoint");
+
+let intPoint= parseInt(myPoint.textContent,10);
+console.log(intPoint);
 
 //プレイヤーの手札を決めるための数字(1~52)
 let playerHandNum;
@@ -60,16 +64,19 @@ let resultSentence;
 let yama = [];
 
 let origin = 0;
-let getPoint = 0;
+let getPoint;
 
 //ここまで変数
 
 //ベットさせるよ
 while (true) {
+	console.log(myPoint.textContent);
     bet = prompt("いくらベットしますか");
     if (!bet || isNaN(bet)) {// 入力が空白または数字以外の場合は再度入力
         alert("有効な整数を入力してください。");
-    } else {
+    } else if(intPoint < bet){
+		alert("所持ポイントより高い額はベットできません\nあなたの所持ポイントは"+intPoint+"です");
+	}else{	
         break;//整数入力されたんで抜ける
     }
     origin = bet;
@@ -78,7 +85,6 @@ while (true) {
 for (i = 0; i < 52; i++){
     yama[i] = (i+1);
 }
-
 //初期手札
 first();
 function first (){
@@ -310,11 +316,12 @@ function result(){
     //2秒後に結果を表示
     setTimeout(function() {
         showResult();
-        getPoint = origin + bet;
+      //  calculationPoint();
         console.log(getPoint);
         let point =document.getElementById("point");
         let form = document.getElementById("form");
-        point.value = getPoint;
+        console.log(bet);
+        point.value = bet;
         form.style.visibility = "";
         //タイトルボタンを表示する
 
@@ -324,5 +331,16 @@ function result(){
 function showResult() {
     alert("あなたの手:" + sumPhand + "\nコンピュータの手:" + sumChand + "\n結果:" + resultSentence+ "\n配当:"+bet);
 }
-
+//getpointの計算
+	function calculationPoint(){
+		 console.log(getPoint);
+		if(bet = 0){
+			getPoint = (1 - bet);
+			 console.log(getPoint);
+		}else{
+			getpoint = (bet + origin);
+			getpoint++
+			 console.log(getPoint);
+		}
+	}
 

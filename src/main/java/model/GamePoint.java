@@ -3,6 +3,7 @@ package model;
 public class GamePoint {
 	private int userId;
 	private int gameId;
+	private int levelId;
 	private int maxGamePoint;
 	private String userName;
 
@@ -16,6 +17,14 @@ public class GamePoint {
 
 	public int getUserId() {
 		return userId;
+	}
+
+	public int getLevelId() {
+		return levelId;
+	}
+
+	public void setLevelId(int levelId) {
+		this.levelId = levelId;
 	}
 
 	public void setUserId(int userId) {

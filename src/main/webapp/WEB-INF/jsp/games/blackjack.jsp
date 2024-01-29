@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import ="model.Point" %>
+	<%Point point = (Point)session.getAttribute("point");%>
+	<%String gameStartError = (String)session.getAttribute("gameStartError");%>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -56,6 +59,13 @@
 		</form>
         </div>
 </div>
+<h2 id="myPoint" style="visibility: hidden;">
+		<%if (point == null) {%>
+			0
+		<%} else {%>
+		<%=point.getPoint()%>
+		<%}%>
+</h2>
 <script src="./js/blackjack.js"></script>
 </body>
 </html>

@@ -9,26 +9,66 @@ import model.GamePoint;
 
 public class GamePointDao extends BaseDao {
 
-	public boolean updateGame_Max_Point(GamePoint gamepoint) {
+	/**
+	 * ゲームポイントを設定するよ
+	 * ユーザーid　ゲームID　LEVELidを設定したgamePointを渡してね
+	 * @param gamePoint 
+	 * @return true:成功 false:失敗
+	 */
+	public boolean setGamePoint(GamePoint gamePoint) {
+		try {
+
+			this.connect();
+
+			String sql = "INSERT INTO game_point (user_id ,game_id , level_id, max_game_point) VALUES (?, ?, ?, ?)";
+
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setInt(1, gamePoint.getUserId());
+			ps.setInt(2, gamePoint.getGameId());
+			ps.setInt(3, gamePoint.getLevelId());
+			ps.setInt(4, 0);
+
+			ps.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				this.disConnect();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return false;
+
+	}
+	/**
+	 * 獲得最大ポイントを更新するよ
+	 * ユーザーIDゲームIDレベルIDポイントをセットして送ってね
+	 * @param gamePoint
+	 * @return trer:成功 aflse:そっぱい
+	 */
+	public boolean updatePoint(GamePoint gamePoint) {
 		boolean isUpdate = false;
 
 		try {
 			this.connect();
 
-			String sql = "UPDATE game_point set max_game_point=?"
-					+ " where user_id=?"
-					+ " and game_id=?";
+			String sql = "UPDATE game_point set max_game_point = ? "
+					+ " where user_id = ? and game_id = ? and level_id = ? ";
 
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setInt(1, 0);
-			ps.setInt(2, gamepoint.getUserId());
-			ps.setInt(3, gamepoint.getGameId());
-			ResultSet rs = ps.executeQuery();
+			ps.setInt(1, gamePoint.getMaxGamePoint());
+			ps.setInt(2, gamePoint.getUserId());
+			ps.setInt(3, gamePoint.getGameId());
+			ps.setInt(4, gamePoint.getLevelId());
 
-			if (rs.next()) {
-				int max = rs.getInt("max_game_point");
-				gamepoint.setMaxGamePoint(max);
+			int tmp = ps.executeUpdate();
+
+			if (tmp>0) {
+
 				isUpdate = true;
 			}
 
@@ -44,41 +84,14 @@ public class GamePointDao extends BaseDao {
 		return isUpdate;
 	}
 
-	public boolean setGame_Max_Point(GamePoint gamepoint) {
-		try {
-			this.connect();
-
-			String sql = "INSERT INTO game_point(user_id,game_id,max_game_point)VALUES(?,?,?)";
-			PreparedStatement ps = con.prepareStatement(sql);
-
-			ps.setInt(1, gamepoint.getUserId());
-			ps.setInt(2, gamepoint.getGameId());
-			ps.setInt(3, gamepoint.getMaxGamePoint());
-			return true;
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				this.disConnect();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return false;
-
-	}
-	
-	
-	
 	/**
 	 * すべてのゲームポイント表をアレイリストで送る
 	 * @return
 	 */
 	public ArrayList<GamePoint> getAllGamePoint() {
-		
-		ArrayList<GamePoint>  gamePoints = new ArrayList<GamePoint>();
-		
+
+		ArrayList<GamePoint> gamePoints = new ArrayList<GamePoint>();
+
 		try {
 
 			this.connect();
@@ -117,19 +130,18 @@ public class GamePointDao extends BaseDao {
 		}
 
 		return null;
-		
-		
+
 	}
-	
+
 	/**
 	 * ゲームIDを指定して検索
 	 * @param gameId
 	 * @return
 	 */
 	public ArrayList<GamePoint> getSelectGamePoint(int gameId) {
-		
-		ArrayList<GamePoint>  gamePoints = new ArrayList<GamePoint>();
-		
+
+		ArrayList<GamePoint> gamePoints = new ArrayList<GamePoint>();
+
 		try {
 
 			this.connect();
@@ -146,7 +158,6 @@ public class GamePointDao extends BaseDao {
 
 			ps.setInt(1, gameId);
 			ResultSet rs = ps.executeQuery();
-
 
 			while (rs.next()) {
 				GamePoint gamePoint = new GamePoint();
@@ -173,8 +184,61 @@ public class GamePointDao extends BaseDao {
 		}
 
 		return null;
-		
-		
+
 	}
-	
+
+	/**
+	 * 
+	 * ユーザーID、ゲームID、レベルIDを指定して存在するか検索
+	 * ゲームポイントに入れて送ってね
+	 * 
+	 * @param gameId
+	 * @return trer:そんざいする　false ;しない
+	 */
+	public boolean findSelectGamePoint(GamePoint gamePoint) {
+
+		try {
+
+			this.connect();
+
+			String sql = "SELECT max_game_point FROM game g ,game_point gp , user u ,use_point up "
+					+ "WHERE gp.user_id = u.user_id "
+					+ "AND gp.game_id = g.game_id "
+					+ "AND gp.game_id = up.game_id "
+					+ "AND u.user_id = ? "
+					+ "AND g.game_id = ? "
+					+ "AND up.level_id = ?";
+
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setInt(1, gamePoint.getUserId());
+			ps.setInt(2, gamePoint.getGameId());
+			ps.setInt(3, gamePoint.getLevelId());
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				
+				return true;
+			}
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			try {
+
+				this.disConnect();
+
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+
+			}
+		}
+
+		return false;
+
+	}
+
 }

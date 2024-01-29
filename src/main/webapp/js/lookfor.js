@@ -193,8 +193,8 @@ function clickQuestionImage() {
 
 
 function scoreUp() {
-	score++
-	pScore.textContent = "POINT : " + score
+	score += 10
+	pScore.textContent = "POINT : " + score 
 
 }
 
