@@ -319,7 +319,7 @@ function result(){
         let form = document.getElementById("form");
         console.log(bet);
         
-        if(bet = 0){
+        if(bet == 0){
 			console.log(origin);
 			bet = (0 - origin);
 			console.log(bet);
