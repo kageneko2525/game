@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		div = document.createElement('div');
 		div.textContent = '獲得ポイント:' + getPoint;
 		pt.append(div);
-		view(getPoint);
+		view();
 	}
 	//カードをクリックした時の動き
 	const flip = (eve) => {
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 });
 
-function view(getPoint) {
+function view() {
 	let form = document.getElementById("form");
 	let score = document.getElementById("score");
 
