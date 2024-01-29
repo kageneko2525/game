@@ -171,6 +171,6 @@ function view() {
 	let form = document.getElementById("form");
 	let score = document.getElementById("score");
 
-	score.value = getPoint / 10;
+	score.value = getPoint;
 	form.style.visibility = "";
 }
