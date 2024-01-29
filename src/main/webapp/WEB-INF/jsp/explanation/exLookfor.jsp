@@ -5,7 +5,7 @@
 <head>
 	<script src="./js/game.js"></script>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>エセガゲームランド</title>
 </head>
 <body>
 	<h1>あいつをさがせ！</h1>

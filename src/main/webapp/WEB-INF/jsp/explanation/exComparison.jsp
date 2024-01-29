@@ -5,7 +5,7 @@
 <head>
 <script src="./js/game.js"></script>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>エセガゲームランド</title>
  <link rel="stylesheet" href="./css/exComparison.css">
 </head>
 <body>
