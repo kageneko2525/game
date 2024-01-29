@@ -64,7 +64,6 @@ let resultSentence;
 let yama = [];
 
 let origin = 0;
-let getPoint;
 
 //ここまで変数
 
@@ -316,11 +315,15 @@ function result(){
     //2秒後に結果を表示
     setTimeout(function() {
         showResult();
-      //  calculationPoint();
         console.log(getPoint);
         let point =document.getElementById("point");
         let form = document.getElementById("form");
         console.log(bet);
+        if(bet = 0){
+			console.log(origin);
+			bet = (0 - origin);
+			console.log(bet);
+		}
         point.value = bet;
         form.style.visibility = "";
         //タイトルボタンを表示する
