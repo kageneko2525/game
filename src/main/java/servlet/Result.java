@@ -113,6 +113,7 @@ public class Result extends HttpServlet {
 				}
 				System.out.println(score);
 				System.out.println(gamePoint.getMaxGamePoint());
+				gamePointDao.getGamePoint(gamePoint);
 				if(score>gamePoint.getMaxGamePoint()) {
 
 					gamePoint.setMaxGamePoint(score);

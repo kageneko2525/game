@@ -133,6 +133,57 @@ public class GamePointDao extends BaseDao {
 
 	}
 
+
+	
+	/**
+	 * 最大ゲームポイントを返す
+	 * @return
+	 */
+	public GamePoint getGamePoint(GamePoint gamePoint) {
+
+
+		try {
+
+			this.connect();
+
+			String sql = "SELECT max_game_point FROM game g ,game_point gp , user u ,use_point up "
+					+ "WHERE gp.user_id = u.user_id "
+					+ "AND gp.game_id = g.game_id "
+					+ "AND gp.game_id = up.game_id "
+					+ "AND u.user_id = ? "
+					+ "AND g.game_id = ? "
+					+ "AND up.level_id = ?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, gamePoint.getUserId());
+			ps.setInt(2, gamePoint.getGameId());
+			ps.setInt(3, gamePoint.getLevelId());
+			ResultSet rs = ps.executeQuery();
+
+			if(rs.next()) {
+				gamePoint.setMaxGamePoint(rs.getInt("max_game_point"));
+				return gamePoint;
+			}
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			try {
+
+				this.disConnect();
+
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+
+			}
+		}
+
+		return null;
+
+	}
+	
 	/**
 	 * ゲームIDを指定して検索
 	 * @param gameId
