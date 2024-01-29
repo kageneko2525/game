@@ -108,12 +108,13 @@ public class Result extends HttpServlet {
 
 				if (!gamePointDao.findSelectGamePoint(gamePoint)) {
 					gamePointDao.setGamePoint(gamePoint);
-					System.out.println("成功");
+
 				} else {
-					System.out.println("失敗");
+
 				}
 				if(score>gamePoint.getMaxGamePoint()) {
-					
+
+					gamePoint.setMaxGamePoint(score);
 					gamePointDao.updatePoint(gamePoint);
 				}
 				//具体的な手順
