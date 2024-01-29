@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.GamePointDao;
 import dao.PointDao;
+import model.GamePoint;
 import model.Point;
 
 @WebServlet("/Result")
@@ -27,8 +29,6 @@ public class Result extends HttpServlet {
 		//ポスト前提なのでゲットは無条件でindexへ
 		String path = "Index";
 
-
-
 		//　ページ遷移
 		response.sendRedirect(path);
 	}
@@ -37,27 +37,27 @@ public class Result extends HttpServlet {
 			throws ServletException, IOException {
 		//フォワード先のパスを入れる変数宣言
 		String forwardPath = "/WEB-INF/jsp/index.jsp";
-		
+
 		//セッションの獲得
 		HttpSession session = request.getSession();
 		if (session == null) {
-			
+
 			//セッションがなかったらセッションを開始し、indexへ
 			session = request.getSession(true);
 			forwardPath = "/WEB-INF/jsp/index.jsp";
-		
+
 		} else {
 
 			//セッションがあったらログインしているかのチェック
 			Object loginCheck = session.getAttribute("loginUser");
-			
+
 			if (loginCheck == null) {
-			
+
 				//ログインしてなかったらIndexへ
 				forwardPath = "/WEB-INF/jsp/index.jsp";
 
 			} else {
-				
+
 				//していたらリザルトへ
 				forwardPath = "/WEB-INF/jsp/result.jsp";
 
@@ -69,19 +69,17 @@ public class Result extends HttpServlet {
 			//数字に直して入れるよう
 			int score = 0;
 
-			
-			
 			try {
-				
+
 				//トライキャッチを使って数字に変換できるかチェック
-				score = Integer.parseInt(scoreSt) ;
-				
+				score = Integer.parseInt(scoreSt);
+
 				//現在ポイントをセッションスコープから取得
 				Point point = (Point) session.getAttribute("point");
 
 				//ポイントDAO作成
 				PointDao pointDao = new PointDao();
-				
+
 				//獲得ポイントを反映させる
 				pointDao.updatePoint(point, score);
 
@@ -91,13 +89,31 @@ public class Result extends HttpServlet {
 				//リザルトに表示用の獲得ポイントをリクエストスコープに保全
 				//一度使うだけなのでリクエストスコープ
 				request.setAttribute("getPoint", score);
-				
-				
-				
-				
-				
+
 				//ここにゲームの最大ポイントを更新するプログラムを記述
-				
+
+				GamePoint gamePoint = new GamePoint();
+				GamePointDao gamePointDao = new GamePointDao();
+
+				int gameId = (Integer)session.getAttribute("gameId");
+				int levelId = (Integer) session.getAttribute("levelId");
+
+				System.out.println(gameId);
+				System.out.println(levelId);
+
+				gamePoint.setUserId(point.getUserId());
+				gamePoint.setGameId(gameId);
+				gamePoint.setLevelId(levelId);
+				gamePoint.setMaxGamePoint(score);
+
+				if (!gamePointDao.findSelectGamePoint(gamePoint)) {
+					gamePointDao.setGamePoint(gamePoint);
+					System.out.println("成功");
+				} else {
+					System.out.println("失敗");
+				}
+
+				gamePointDao.updatePoint(gamePoint);
 				//具体的な手順
 				//DAO　Logicの作成
 				//GAmeid levelId　userIdごとに一列
@@ -106,17 +122,12 @@ public class Result extends HttpServlet {
 				//初プレイかどうかはDAOでデータあるかどうか調べる
 				//データがない場合はNULLで返すなどをしてロジック側でわかるように
 				//User情報はセッションスコープにあるので引っ張ってきてください
-				
-				
-				
-				
-				
-			} catch (Exception e) {
 
+			} catch (Exception e) {
+				e.printStackTrace();
 				//キャッチされたら不正な値なので後で垢BANつくりたい
 
 			}
-
 
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
