@@ -318,6 +318,7 @@ function result(){
         let point =document.getElementById("point");
         let form = document.getElementById("form");
         console.log(bet);
+        
         if(bet = 0){
 			console.log(origin);
 			bet = (0 - origin);
