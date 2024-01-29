@@ -28,7 +28,6 @@
 	<button id="gameId" onclick="fetchUserData('2')">神経衰弱</button>
 
 
-
 	<table id="userDataContainer">
 		<tr>
 			<td>順位</td>
