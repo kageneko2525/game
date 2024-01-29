@@ -73,10 +73,7 @@ public class Registration extends HttpServlet {
 			//indexへ
 			point.setUserId(registrationUser.getUserId());
 			pointDao.getPoint(point);
-			System.out.println(point);
-			System.out.println(point.getPoint());
-			System.out.println(point.getSumPoint());
-			System.out.println(point.getUserId());
+
 			session.setAttribute("point", point);
 			session.setAttribute("loginUser", registrationUser);
 			path ="Index";

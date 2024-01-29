@@ -20,7 +20,7 @@ public class GamePointDao extends BaseDao {
 
 			this.connect();
 
-			String sql = "INSERT INTO game_point (user_id ,game_id , level_id, max_game_point) VALUES (?, ?, ?, ?)";
+			String sql = "INSERT INTO game_point (user_id ,game_id , level_id, max_game_point) VALUES (?, ?, ?, 0 )";
 
 			PreparedStatement ps = con.prepareStatement(sql);
 

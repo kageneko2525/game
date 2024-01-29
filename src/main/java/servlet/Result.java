@@ -98,20 +98,21 @@ public class Result extends HttpServlet {
 				int gameId = (Integer)session.getAttribute("gameId");
 				int levelId = (Integer) session.getAttribute("levelId");
 
-				System.out.println(gameId);
-				System.out.println(levelId);
+
 
 				gamePoint.setUserId(point.getUserId());
 				gamePoint.setGameId(gameId);
 				gamePoint.setLevelId(levelId);
 				gamePoint.setMaxGamePoint(score);
-
+				
 				if (!gamePointDao.findSelectGamePoint(gamePoint)) {
 					gamePointDao.setGamePoint(gamePoint);
 
 				} else {
 
 				}
+				System.out.println(score);
+				System.out.println(gamePoint.getMaxGamePoint());
 				if(score>gamePoint.getMaxGamePoint()) {
 
 					gamePoint.setMaxGamePoint(score);
