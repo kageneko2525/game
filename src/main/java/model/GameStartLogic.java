@@ -13,7 +13,7 @@ public class GameStartLogic {
 	 */
 	public boolean checkGameLevel(int gameId, int levelId) {
 		UsePointDao usePointDao = new UsePointDao();
-		if (usePointDao.getUsePoint(gameId, levelId) > 0) {
+		if (usePointDao.getUsePoint(gameId, levelId) >= 0) {
 			return true;
 		} else {
 			return false;
