@@ -78,8 +78,10 @@ while (true) {
 	}else{	
         break;//整数入力されたんで抜ける
     }
-    origin = bet;
 }
+console.log(bet);
+origin = bet;
+console.log(origin);
 //山札作成
 for (i = 0; i < 52; i++){
     yama[i] = (i+1);
