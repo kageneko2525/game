@@ -316,12 +316,12 @@ function result(){
     //2秒後に結果を表示
     setTimeout(function() {
         showResult();
-        calculationPoint();
+      //  calculationPoint();
         console.log(getPoint);
         let point =document.getElementById("point");
         let form = document.getElementById("form");
         console.log(bet);
-        point.value = getPoint;
+        point.value = bet;
         form.style.visibility = "";
         //タイトルボタンを表示する
 
