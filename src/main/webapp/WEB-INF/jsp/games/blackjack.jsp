@@ -55,7 +55,7 @@
 		<form style="visibility: hidden;" id="form" action="Result"
 			method="post">
 			<input id="point" type="hidden" value="" name="score"> <input
-				type="submit" value="結果を送信" id="endButton">
+				type="submit" value="リザルト画面へ" id="endButton">
 		</form>
         </div>
 </div>
