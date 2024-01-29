@@ -120,6 +120,12 @@ function first (){
         changeImg(playerElement,playerPattern,playerHandNum);
         //プレイヤーのカードの合計を計算する
         sumPlayerHand();
+        //プレイヤーがブラックジャック、バーストかどうかをチェックする
+  		cheakPlayer(sumPhand);
+   		//プレイヤーがブラックジャック、バーストの場合、ゲームが終わる
+   		if(playerBrst == true || playerBlackjack == true){
+        	result();
+   		}
     }
 }
 //ドロー
