@@ -15,6 +15,13 @@ let elapsedTime = 0;
 let timeoutID;
 
 let timer;
+let firstCard = null;//1枚目のカード
+	let secondCard = null;//2枚目のカード
+	let pea = 0;//ペアになった組数
+	let continuousPair = 0;//連続記録
+	let continuousPairRecord = 0;//最大連続記録
+	let incorrectAttempts = 0; // 間違えた試行回数
+	let getPoint = 0;//獲得ポイント
 
 //時間を表示
 function displayTime() {
@@ -59,13 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 
-	let firstCard = null;//1枚目のカード
-	let secondCard = null;//2枚目のカード
-	let pea = 0;//ペアになった組数
-	let continuousPair = 0;//連続記録
-	let continuousPairRecord = 0;//最大連続記録
-	let incorrectAttempts = 0; // 間違えた試行回数
-	let getPoint = 0;//獲得ポイント
+
 
 	//結果を表示
 	function result() {
