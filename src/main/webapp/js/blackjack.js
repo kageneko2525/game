@@ -315,7 +315,6 @@ function result(){
     //2秒後に結果を表示
     setTimeout(function() {
         showResult();
-        console.log(getPoint);
         let point =document.getElementById("point");
         let form = document.getElementById("form");
         console.log(bet);
