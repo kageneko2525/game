@@ -1,3 +1,4 @@
+<%@page import="java.io.Console"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	    <%@ page import ="model.Point" %>
@@ -25,6 +26,7 @@
 	</div>
 		<h1>ミニゲーム一覧</h1>
 	<h2>所持ポイント: 
+
 
 <%if(point == null ){ %>
 	0

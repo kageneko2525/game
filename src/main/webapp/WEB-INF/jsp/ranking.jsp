@@ -23,8 +23,9 @@
 		<h1 id="header__title">エセガゲームランド</h1>
 	</div>
 
-	<button id="gameId" onclick="fetchUserData('0')">0</button>
-	<button id="gameId" onclick="fetchUserData('1')">1</button>
+	<button id="gameId" onclick="fetchUserData('0')">ブラックジャック</button>
+	<button id="gameId" onclick="fetchUserData('1')">あいつをさがせ</button>
+	<button id="gameId" onclick="fetchUserData('2')">真剣衰弱</button>
 
 
 
@@ -34,7 +35,7 @@
 			<td>ユーザー名</td>
 			<td>ポイント</td>
 		</tr>
-		<tr >
+		<tr>
 			<td colspan="3">ボタンを押してランキングを表示</td>
 		</tr>
 	</table>

@@ -47,7 +47,7 @@ public class Registration extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		
-		String registrartionName = request.getParameter("registrationName");
+		String registrationName = request.getParameter("registrationName");
 		String mail = request.getParameter("mail");
 		String pass = request.getParameter("pass");
 		String samePass = request.getParameter("samePass");
@@ -66,13 +66,18 @@ public class Registration extends HttpServlet {
 
 		RegistrationLogic registrationLogic = new RegistrationLogic();
 
-		String registrarionError = registrationLogic.chackRegistration(registrartionName, mail,pass, samePass ,registrationUser);
+		String registrarionError = registrationLogic.chackRegistration(registrationName, mail,pass, samePass ,registrationUser);
 		
 		if(registrarionError == null ||registrarionError.isEmpty()) {
 			//エラーメッセージがないなら登録成功
 			//indexへ
+			point.setUserId(registrationUser.getUserId());
 			pointDao.getPoint(point);
-			session.setAttribute("point", 1000);
+			System.out.println(point);
+			System.out.println(point.getPoint());
+			System.out.println(point.getSumPoint());
+			System.out.println(point.getUserId());
+			session.setAttribute("point", point);
 			session.setAttribute("loginUser", registrationUser);
 			path ="Index";
 			session.setMaxInactiveInterval(60*10);
