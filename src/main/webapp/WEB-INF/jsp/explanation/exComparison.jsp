@@ -13,7 +13,7 @@
 	<p>1回:100pt</p>
 	<p>連続正解と少ないミスが高得点の秘訣！お前の記憶力を見せてみろ！</p>
 	<form action="GameStart" method="post">
-		<input type="hidden" name="gameId" value="3"> <input
+		<input type="hidden" name="gameId" value="2"> <input
 			type="hidden" name="levelId" value="1"> <input type="submit"
 			value="ゲームを開始" class="button">
 	</form>

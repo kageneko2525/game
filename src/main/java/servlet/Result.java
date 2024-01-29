@@ -112,8 +112,10 @@ public class Result extends HttpServlet {
 				} else {
 					System.out.println("失敗");
 				}
-
-				gamePointDao.updatePoint(gamePoint);
+				if(score>gamePoint.getMaxGamePoint()) {
+					
+					gamePointDao.updatePoint(gamePoint);
+				}
 				//具体的な手順
 				//DAO　Logicの作成
 				//GAmeid levelId　userIdごとに一列
